@@ -28,7 +28,7 @@ if(isset($_SESSION ['Usuario'])){
         <div class="seccion">
             <ul>
                 <li>
-                    <a clas="enlace_seccion" href="index.html">Inicio</a>
+                    <a clas="enlace_seccion" href="./index.php">Inicio</a>
                 </li>
             </ul>
         </div>
