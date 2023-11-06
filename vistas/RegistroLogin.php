@@ -98,7 +98,7 @@ if(isset($_SESSION ['Usuario'])){
                     </form>
 
                     <!--Register-->
-                    <form action= "../controlador/act_login.php" method="POST" class="formulario__register">
+                    <form action= "../controlador/act_registrarUsuario.php" method="POST" class="formulario__register">
                         <h2>Regístrarse</h2>
                         <input type="text" placeholder="Nombre completo" name="Nombre_completo">
                         <input type="text" placeholder="Correo Electronico" name="Correo">
