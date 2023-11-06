@@ -62,7 +62,7 @@ if(isset($_SESSION['$Usuario'])){
                                     Servicio de soporte</a>
                                 </li>
                                 <hr />
-                                <li><a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                <li><a href="../controlador/act_lagout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>
                                     Cerrar sesión</a>
                                 </li>
                             </ul>

@@ -1,73 +1,88 @@
 <?php
 
-
-/**
- * Usuario
- */
 class Usuario
 {
-    private $id;
-    private $nombre;
-    private $username;
-    private $password;
+    public $idUsuario;
+    public $Nombre_completo;
+    public $Correo;
+    public $Usuario;
+    public $rol;
+    public $contrasena;
 
-    public function __construct($id, $nombre, $username, $password){
-        $this->id = $id;
-        $this->nombre = $nombre;
-        $this->username = $username;
-        $this->password = $password;
-    }
-    
-
-    public function getId()
+    public function __construct($idUsuario, $Nombre_completo, $Correo, $Usuario, $rol, $contrasena)
     {
-        return $this->id;
+        $this->idUsuario = $idUsuario;
+        $this->Nombre_completo = $Nombre_completo;
+        $this->Correo = $Correo;
+        $this->Usuario = $Usuario;
+        $this->rol = $rol;
+        $this->contrasena = $contrasena;
     }
-    
-    public function setNombre($nombre)
-    {
-        $this->nombre = $nombre;
 
+    public function getIdUsuario()
+    {
+        return $this->idUsuario;
+    }
+
+    public function setIdUsuario($idUsuario)
+    {
+        $this->idUsuario = $idUsuario;
         return $this;
     }
 
-    public function getNombre()
+    public function getNombreCompleto()
     {
-        return $this->nombre;
+        return $this->Nombre_completo;
     }
 
-    public function setUsername($username)
+    public function setNombreCompleto($Nombre_completo)
     {
-        $this->username = $username;
-
+        $this->Nombre_completo = $Nombre_completo;
         return $this;
     }
 
-
-    public function getUsername()
+    public function getCorreo()
     {
-        return $this->username;
+        return $this->Correo;
     }
 
-    public function setPassword($password)
+    public function setCorreo($Correo)
     {
-        $this->password = $password;
+        $this->Correo = $Correo;
         return $this;
     }
 
-    public function getPassword()
+    public function getUsuario()
     {
-        return $this->password;
+        return $this->Usuario;
     }
 
-        
-    public function toArray() {
-        $vars = get_object_vars ( $this );
-        $array = array ();
-        foreach ( $vars as $key => $value ) {
-            $array [ltrim ( $key, '_' )] = $value;
-        }
-        return $array;
+    public function setUsuario($Usuario)
+    {
+        $this->Usuario = $Usuario;
+        return $this;
+    }
+
+    public function getRol()
+    {
+        return $this->rol;
+    }
+
+    public function setRol($rol)
+    {
+        $this->rol = $rol;
+        return $this;
+    }
+
+    public function getContrasena()
+    {
+        return $this->contrasena;
+    }
+
+    public function setContrasena($contrasena)
+    {
+        $this->contrasena = $contrasena;
+        return $this;
     }
 }
-
+?>
