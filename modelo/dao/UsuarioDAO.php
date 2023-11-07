@@ -14,11 +14,11 @@ class UsuarioDAO {
         if (count($data_table) == 1) {
             $usuario = new Usuario(
                 $data_table[0]["idUsuario"],
-                $data_table[0]["nombre"],
-                $data_table[0]["email"],
+                $data_table[0]["nombre_completo"],
+                $data_table[0]["correo"],
                 $data_table[0]["usuario"],
                 $data_table[0]["rol"],
-                $data_table[0]["clave"]
+                $data_table[0]["contrasena"]
             );
             return $usuario;
         } else {
@@ -34,11 +34,11 @@ class UsuarioDAO {
         if (count($data_table) == 1) {
             $usuario = new Usuario(
                 $data_table[0]["idUsuario"],
-                $data_table[0]["nombre"],
-                $data_table[0]["email"],
+                $data_table[0]["nombre_completo"],
+                $data_table[0]["correo"],
                 $data_table[0]["usuario"],
                 $data_table[0]["rol"],
-                $data_table[0]["clave"]
+                $data_table[0]["contrasena"]
             );
             return $usuario;
         } else {
@@ -53,29 +53,29 @@ class UsuarioDAO {
         foreach ($data_table as $row) {
             $usuario = new Usuario(
                 $row["idUsuario"],
-                $row["nombre"],
-                $row["email"],
+                $row["nombre_completo"],
+                $row["correo"],
                 $row["usuario"],
                 $row["rol"],
-                $row["clave"]
+                $row["contrasena"]
             );
             array_push($usuarios, $usuario);
         }
         return $usuarios;   
     }
     
+  
     public function insertarUsuario(Usuario $usuario) {
         $data_source = new DataSource();
-        $sql = "INSERT INTO usuario (idUsuario, nombre, Correo, usuario, rol, contrasena) 
-                VALUES (:idUsuario, :Correo, :email, :usuario, :rol, :contrasena)";
+        $sql = "INSERT INTO usuario VALUES (:idUsuario, :nombre_completo, :correo, :email, :usuario, :contrasena)";
         
         $resultado = $data_source->ejecutarActualizacion($sql, array(
             ':idUsuario' => $usuario->getIdUsuario(),
-            ':nombre' => $usuario->getNombreCompleto(),
-            ':email' => $usuario->getCorreo(),
+            ':nombre_completo' => $usuario->getNombreCompleto(),
+            ':correo' => $usuario->getCorreo(),
             ':usuario' => $usuario->getUsuario(),
-            ':rol' => $usuario->getRol(),
-            ':clave' => $usuario->getContrasena()
+            // ':rol' => $usuario->getRol(),
+            ':contrasena' => $usuario->getContrasena()
         ));
         return $resultado;
     }
@@ -86,11 +86,11 @@ class UsuarioDAO {
                 rol = :rol, clave = :clave WHERE idUsuario = :idUsuario";
         
         $resultado = $data_source->ejecutarActualizacion($sql, array(
-            ':nombre' => $usuario->getNombreCompleto(),
-            ':email' => $usuario->getCorreo(),
+            ':nombre_completo' => $usuario->getNombreCompleto(),
+            ':correo' => $usuario->getCorreo(),
             ':usuario' => $usuario->getUsuario(),
             ':rol' => $usuario->getRol(),
-            ':password' => $usuario->getContrasena(),
+            ':contrasena' => $usuario->getContrasena(),
             ':idUsuario' => $usuario->getIdUsuario()
         ));
         

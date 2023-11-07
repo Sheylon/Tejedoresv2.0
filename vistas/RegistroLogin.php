@@ -103,11 +103,11 @@ if(isset($_SESSION ['Usuario'])){
                         <input type="text" placeholder="Nombre completo" name="Nombre_completo">
                         <input type="text" placeholder="Correo Electronico" name="Correo">
                         <input type="text" placeholder="Usuario" name="Usuario">
-                        <select name="rol" id="rol">
+                        <!-- <select name="rol" id="rol">
                         <option value="" style="color: gray;" disabled selected hidden>Registrar como</option>
                         <option value="usuario">Usuario</option>
                         <option value="administrador">Administrador</option>
-                        </select>
+                        </select> -->
                         <input type="password" placeholder="Contrasena" name="contrasena">
                         <button>Regístrarse</button>
                     </form>

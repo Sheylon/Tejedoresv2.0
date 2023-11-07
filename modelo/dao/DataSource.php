@@ -27,13 +27,15 @@ class DataSource {
             // Se construye la cadena de conexión para la base de datos a partir de los valores del archivo de configuración
             $this->cadenaConexion = "mysql:host=" . $json['host'] . ";dbname=" . $json['database'] . ';charset=utf8';
             
+
             // Se crea una instancia de PDO para establecer la conexión con la base de datos
-            $this->conexion = new PDO($this->cadenaConexion, $json['Correo'], $json['contrasena']);
+            $this->conexion = new PDO($this->cadenaConexion,$json['username'],$json['password']);
         } catch (PDOException $ex) {
             echo $ex->getMessage(); // En caso de error, se muestra un mensaje de error
         }
     }
-    
+
+     
     public function ejecutarConsulta($sql = "", $values = array()){
         if ($sql != "") {
             // Se prepara la consulta SQL
