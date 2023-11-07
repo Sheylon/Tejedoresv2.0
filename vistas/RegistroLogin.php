@@ -98,7 +98,7 @@ if(isset($_SESSION ['Usuario'])){
                     </form>
 
                     <!--Register-->
-                    <form action= "../controlador/act_registrarUsuario.php" method="POST" class="formulario__register">
+                    <form action= "../controlador/action/act_registrarUsuario.php" method="POST" class="formulario__register">
                         <h2>Regístrarse</h2>
                         <input type="text" placeholder="Nombre completo" name="Nombre_completo">
                         <input type="text" placeholder="Correo Electronico" name="Correo">
@@ -108,8 +108,7 @@ if(isset($_SESSION ['Usuario'])){
                         <option value="usuario">Usuario</option>
                         <option value="administrador">Administrador</option>
                         </select>
-                        
-                        <input type="password" placeholder="Contraseña" name="contrasena">
+                        <input type="password" placeholder="Contrasena" name="contrasena">
                         <button>Regístrarse</button>
                     </form>
                 </div>

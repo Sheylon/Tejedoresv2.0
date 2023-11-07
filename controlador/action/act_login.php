@@ -5,10 +5,10 @@
 	if(isset($_POST['submit'])){
 		$errMsg = '';
 		//username and password sent from Form
-		$username = $_POST['correo'];
+		$correo = $_POST['correo'];
 		$password = $_POST['contrasena'];
                 
-                $usuario = autenticarUsuario($email, $clave);
+                $usuario = autenticarUsuario($correo, $password);
                 echo $email;
 
 		if($usuario != null){ // Puede iniciar sesión
@@ -21,9 +21,4 @@
                     header("Location:../../vistas/RegistroLogin.php");
 		}
 	}
-        
-        
-        // No puede iniciar sesión
-       // header("Location: ../../vista/login.html");
-        
 ?>
