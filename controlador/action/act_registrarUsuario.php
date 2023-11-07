@@ -4,7 +4,7 @@
 session_start();
 
 require_once(__DIR__ . "/../modelo/entidad/Usuario2.php");
-require_once(__DIR__ . "/mdbUsuario2.php");
+require_once(__DIR__ . "/../mdb/mdbUsuario.php");
 
 if (isset($_POST['Nombre_completo'], $_POST['Correo'], $_POST['Usuario'], $_POST['rol'], $_POST['contrasena'])) {
     $nombreCompleto = $_POST['Nombre_completo'];
