@@ -13,7 +13,7 @@
 
 		if($usuario != null){ // Puede iniciar sesión
                     $_SESSION['ID_USUARIO'] = $usuario->getIdUsuario();
-                    $_SESSION['NOMBRE_USUARIO'] = $usuario->getNombre();
+                    $_SESSION['NOMBRE_USUARIO'] = $usuario->getNombreCompleto();
                     $errMsg .= 'Username and Password are dffd found';
                     header("Location:../../../vistas/index.php");
 		}else{ // No puede iniciar sesión

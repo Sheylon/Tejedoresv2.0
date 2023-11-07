@@ -1,5 +1,5 @@
 <?php
-require_once("./DataSource.php");
+require_once(__DIR__ . "/DataSource.php");
 require_once(__DIR__ . "/../entidad/Usuario2.php");
 
 class UsuarioDAO {
