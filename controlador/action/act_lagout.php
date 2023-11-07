@@ -2,5 +2,5 @@
 session_start();
 session_destroy();
 
-header("Location:../vistas/index.php");
+header("Location:../../vistas/index.php");
 ?>
