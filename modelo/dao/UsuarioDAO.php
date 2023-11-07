@@ -67,14 +67,14 @@ class UsuarioDAO {
   
     public function insertarUsuario(Usuario $usuario) {
         $data_source = new DataSource();
-        $sql = "INSERT INTO usuario VALUES (:idUsuario, :nombre_completo, :correo, :email, :usuario, :contrasena)";
+        $sql = "INSERT INTO usuario VALUES (:idUsuario, :nombre_completo, :correo, :email, :usuario, :rol, :contrasena)";
         
         $resultado = $data_source->ejecutarActualizacion($sql, array(
             ':idUsuario' => $usuario->getIdUsuario(),
             ':nombre_completo' => $usuario->getNombreCompleto(),
             ':correo' => $usuario->getCorreo(),
             ':usuario' => $usuario->getUsuario(),
-            // ':rol' => $usuario->getRol(),
+            ':rol' => $usuario->getRol(),
             ':contrasena' => $usuario->getContrasena()
         ));
         return $resultado;

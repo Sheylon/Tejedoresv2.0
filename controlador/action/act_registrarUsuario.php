@@ -10,7 +10,7 @@ if (isset($_POST['Nombre_completo'], $_POST['Correo'], $_POST['Usuario'], $_POST
     $nombreCompleto = $_POST['Nombre_completo'];
     $correo = $_POST['Correo'];
     $usuario = $_POST['Usuario'];
-    // $rol = $_POST['rol'];
+    $rol = $_POST['rol'];
     $contrasena = $_POST['contrasena'];
 
     // Crear una instancia de la clase Usuario
