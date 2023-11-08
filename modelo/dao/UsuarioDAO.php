@@ -7,8 +7,8 @@ class UsuarioDAO {
     public function autenticarUsuario($Correo, $contrasena) {
         $data_source = new DataSource();
     
-        $data_table = $data_source->ejecutarConsulta("SELECT * FROM usuario WHERE email = :email AND email = :email", 
-                                                    array(':email' => $Correo, ':email' => $contrasena));
+        $data_table = $data_source->ejecutarConsulta("SELECT * FROM usuario WHERE correo = :correo AND contrasena = :contrasena", 
+                                                    array(':correo' => $Correo, ':contrasena' => $contrasena));
         
         $usuario = null;
         if (count($data_table) == 1) {
@@ -67,7 +67,7 @@ class UsuarioDAO {
   
     public function insertarUsuario(Usuario $usuario) {
         $data_source = new DataSource();
-        $sql = "INSERT INTO usuario VALUES (:idUsuario, :nombre_completo, :correo, :email, :usuario, :rol, :contrasena)";
+        $sql = "INSERT INTO usuario VALUES (:idUsuario, :nombre_completo, :correo, :usuario, :rol, :contrasena)";
         
         $resultado = $data_source->ejecutarActualizacion($sql, array(
             ':idUsuario' => $usuario->getIdUsuario(),

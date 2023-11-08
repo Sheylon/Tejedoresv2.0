@@ -1,4 +1,4 @@
-CREATE TABLE usuarios (
+CREATE TABLE usuario (
 	idUsuario serial PRIMARY KEY,
 	nombre_completo varchar(200) NOT NULL,
 	correo varchar(50) NOT NULL,

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['$Usuario'])){
+if(isset($_SESSION['$NOMBRE_USUARIO'])){
     header("Location = Bienvenida.php");
 }
 ?>
@@ -30,7 +30,7 @@ if(isset($_SESSION['$Usuario'])){
                                     <div class="profile-img">
                                     </div>
                                     <span><?php
-                                        echo $_SESSION ['$Usuario'];
+                                        echo $_SESSION ['$NOMBRE_USUARIO'];
                                         ?>
                                         <i class="fa-solid fa-angle-down"></i>
                                     </span>
