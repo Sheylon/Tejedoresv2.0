@@ -25,7 +25,7 @@ if(isset($_SESSION['$NOMBRE_USUARIO'])){
                 <li>
                     <ul class="menu">
                         <li>
-                            <a href="#">
+                            <a href="">
                                 <div class="profile-dropdown-btn">
                                     <div class="profile-img">
                                     </div>
@@ -62,7 +62,7 @@ if(isset($_SESSION['$NOMBRE_USUARIO'])){
                                     Servicio de soporte</a>
                                 </li>
                                 <hr />
-                                <li><a href="../controlador/act_lagout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                <li><a href="../controlador/action/act_lagout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>
                                     Cerrar sesión</a>
                                 </li>
                             </ul>

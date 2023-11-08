@@ -21,6 +21,7 @@ if (isset($_POST['Nombre_completo'], $_POST['Correo'], $_POST['Usuario'], $_POST
 
     if ($resultado) {
         // Redirige al usuario a la página de inicio de sesión con un mensaje de éxito.
+        
         header("Location:../../vistas/index.php?msg=Registro exitoso");
     } else {
         // Redirige al usuario a la página de registro con un mensaje de error.
