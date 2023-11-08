@@ -20,7 +20,7 @@
 
   header{
     background-color: #363535;
-    padding: 15px;
+    
   }
 
   .profile-img {
@@ -142,6 +142,7 @@
   /* Submenu*/
   
   .submenu{
+    
     position: absolute;
     background: #363535;
     width: 250px;
@@ -153,6 +154,7 @@
   }
 
   .submenu2{
+    right: 20px;
     position: absolute;
     background: white;
     width: 250px;
