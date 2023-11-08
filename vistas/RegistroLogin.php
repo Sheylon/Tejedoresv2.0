@@ -88,9 +88,9 @@ if(isset($_SESSION ['Usuario'])){
 
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
+
                     <!--Login-->
-                    <form action="../controlador/action/act_login.php" method= "POST"
-                     class=formulario__login>
+                    <form action="../controlador/action/act_login.php" method= "POST" class=formulario__login>
                         <h2>Iniciar Sesión</h2>
                         <input type="text" placeholder="Correo Electronico" name= "correo">
                         <input type="password" placeholder="Contraseña" name="contrasena">
@@ -106,7 +106,7 @@ if(isset($_SESSION ['Usuario'])){
                         <select name="rol" id="rol">
                         <option value="" style="color: gray;" disabled selected hidden>Registrar como</option>
                         <option value="usuario">Usuario</option>
-                        <option value="administrador">Administrador</option>
+                        <option value="Vendedor">Vendedor</option>
                         </select>
                         <input type="password" placeholder="Contrasena" name="contrasena">
                         <button>Regístrarse</button>
