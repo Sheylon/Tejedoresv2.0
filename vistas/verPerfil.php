@@ -11,7 +11,7 @@ if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'],
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tejedores</title> 
+    <title>Ver Pefil</title> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="css/stylePagHistoria.css">
     <link rel="stylesheet" href="css/perfil.css">
@@ -35,7 +35,7 @@ if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'],
                         echo '<ul class="submenu2">';
                         echo '<li><a clas="enlace_seccion" href="funciones/carrito/index.html"><i class="fa-solid fa-cart-shopping"></i> Compras</a></li>';
                         echo '<li><a clas="enlace_seccion" href="funciones/Vender/index.html"><i class="fa-solid fa-chart-line"></i> Vender</a></li>';
-                        echo '<li><a href="./perfil.php"><i class="fa-regular fa-user"></i> Perfil</a></li>';
+                        echo '<li><a href="./verPerfil.php"><i class="fa-regular fa-user"></i> Perfil</a></li>';
                         echo '<li><a href="#"><i class="fa-solid fa-sliders"></i> Configuración</a></li>';
                         echo '<li><a href="#"><i class="fa-regular fa-circle-question"></i> Servicio de soporte</a></li>';
                         echo '<hr />';
@@ -103,15 +103,16 @@ if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'],
     </div>
 
     <div class="opciones">
-        <ul>
-            <li>
-            <a href="">Editas datos</a>
-            </li>
-            <li>
-            <a href="../controlador/action/act_eliminateCuenta.php">Eliminar Cuenta</a>
-            </li>
-        </ul>
-    </div>
+    <ul>
+        <li>
+            <a href="#" class="button">Editas datos</a>
+        </li>
+        <li>
+            <a href="../controlador/action/act_eliminateCuenta.php" class="button2">Eliminar Cuenta</a>
+        </li>
+    </ul>
+</div>
+
 
 
 

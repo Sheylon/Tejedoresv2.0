@@ -31,7 +31,7 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
                             echo '<ul class="submenu2">';
                             echo '<li><a clas="enlace_seccion" href="funciones/carrito/index.html"><i class="fa-solid fa-cart-shopping"></i> Compras</a></li>';
                             echo '<li><a clas="enlace_seccion" href="funciones/Vender/index.html"><i class="fa-solid fa-chart-line"></i> Vender</a></li>';
-                            echo '<li><a href="./perfil.php"><i class="fa-regular fa-user"></i> Perfil</a></li>';
+                            echo '<li><a href="./verPerfil.php"><i class="fa-regular fa-user"></i> Perfil</a></li>';
                             echo '<li><a href="#"><i class="fa-solid fa-sliders"></i> Configuración</a></li>';
                             echo '<li><a href="#"><i class="fa-regular fa-circle-question"></i> Servicio de soporte</a></li>';
                             echo '<hr />';
