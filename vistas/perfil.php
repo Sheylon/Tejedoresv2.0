@@ -1,6 +1,7 @@
 <?php
 session_start();
-if(isset($_SESSION['$NOMBRE_USUARIO'])){
+if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'], 
+            $_SESSION['CORREO_USUARIO'], $_SESSION['USUARIO'], $_SESSION['ROL_USUARIO'] )){
     header("Location =index");
 }
 ?>
@@ -93,13 +94,16 @@ if(isset($_SESSION['$NOMBRE_USUARIO'])){
         </div>
         <div class="user-details">
             <h1>Perfil de Usuario</h1>
-            <p>Bienvenido, <?php echo $_SESSION['Nombre_completo']; ?>.</p>
-            <p>Nombre de usuario: <?php echo $usuario['Usuario']; ?></p>
-            <p>Correo Electrónico: <?php echo $usuario['Correo']; ?></p>
-            <p>Rol: <?php echo $usuario['rol']; ?></p>
+            <p>Bienvenido, <?php echo $_SESSION['NOMBRE_USUARIO']; ?>.</p>
+            <p>Nombre de usuario: <?php echo  $_SESSION['USUARIO']; ?>.</p>
+            <p>Correo Electrónico: <?php echo  $_SESSION['CORREO_USUARIO']; ?>.</p>
+            <p>Rol: <?php echo  $_SESSION['ROL_USUARIO']; ?>.</p>
             <!-- Puedes agregar más detalles del perfil aquí -->
         </div>
     </div>
+
+    <div class="c">
+
 
 
 
