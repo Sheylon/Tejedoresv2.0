@@ -13,13 +13,16 @@
 
 		if($usuario != null){ // Puede iniciar sesión
                     $_SESSION['ID_USUARIO'] = $usuario->getIdUsuario();
-                    $_SESSION['NOMBRE_USUARIO'] = $usuario->getNombreCompleto();
-                    $errMsg .= 'Username and Password are dffd found';
-                    header("Location: ../../vistas/indez.php?msg=Ingreso exitoso");
+                    $_SESSION['NOMBRE_USUARIO'] = $usuario->getNombreCompleto(); 
+                    header("Location: ../../vistas/index.php");
+                    echo 'Conectado exitosamente a la Base de Datos';
 
 		}else{ // No puede iniciar sesión
                     $errMsg .= 'Username and Password are not found';
-                    header("Location: ../../vistas/RegistroLogin.php?msg=Ingreso incorrecto");
+                    header("Location: ../../vistas/RegistroLogin.php");
+                    echo 'No se ha podido conectar a la Base de Datos';
 		}
+
+
 	}
 ?>

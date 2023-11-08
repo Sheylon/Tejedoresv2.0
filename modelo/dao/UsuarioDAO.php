@@ -4,11 +4,11 @@ require_once(__DIR__ . "/../entidad/Usuario.php");
 
 class UsuarioDAO {
     
-    public function autenticarUsuario($Correo, $contrasena) {
+    public function autenticarUsuario($correo, $contrasena) {
         $data_source = new DataSource();
     
         $data_table = $data_source->ejecutarConsulta("SELECT * FROM usuario WHERE correo = :correo AND contrasena = :contrasena", 
-                                                    array(':correo' => $Correo, ':contrasena' => $contrasena));
+                                                    array(':correo' => $correo, ':contrasena' => $contrasena));
         
         $usuario = null;
         if (count($data_table) == 1) {
