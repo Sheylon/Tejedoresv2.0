@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['$NOMBRE_USUARIO'])){
+if(isset($_SESSION['NOMBRE_USUARIO'])){
     header("Location = Bienvenida.php");
 }
 ?>
@@ -27,7 +27,7 @@ if(isset($_SESSION['$NOMBRE_USUARIO'])){
                     <li>
                         <?php
                         if (isset($_SESSION['NOMBRE_USUARIO'])) {
-                            echo '<a href="#"><div class="profile-dropdown-btn"><div class="profile-img"></div><span>' . $_SESSION['NOMBRE_USUARIO'] . '<i class="fa-solid fa-angle-down"></i></span></a>';
+                            echo '<a href="#"><div class="profile-dropdown-btn"><div class="profile-img"></div><span>' . $_SESSION['$NOMBRE_USUARIO'] . '<i class="fa-solid fa-angle-down"></i></span></a>';
                             echo '<ul class="submenu2">';
                             echo '<li><a clas="enlace_seccion" href="funciones/carrito/index.html"><i class="fa-solid fa-cart-shopping"></i> Compras</a></li>';
                             echo '<li><a clas="enlace_seccion" href="funciones/Vender/index.html"><i class="fa-solid fa-chart-line"></i> Vender</a></li>';
