@@ -13,8 +13,8 @@
                 echo $correo;
                 
 		if($usuario != null){ // Puede iniciar sesión
-                    $_SESSION['$ID_USUARIO'] = $usuario->getIdUsuario();
-                    $_SESSION['$NOMBRE_USUARIO'] = $usuario->getNombreCompleto(); 
+                    $_SESSION['ID_USUARIO'] = $usuario->getIdUsuario();
+                    $_SESSION['NOMBRE_USUARIO'] = $usuario->getNombreCompleto(); 
                     header('Location: ../../vistas/index.php');
                     echo 'Conectado exitosamente a la Base de Datos';
 
