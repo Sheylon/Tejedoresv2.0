@@ -102,7 +102,8 @@ if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'],
         </div>
     </div>
 
-    <div class="c">
+    <div class="">
+    </div>
 
 
 
