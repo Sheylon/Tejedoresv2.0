@@ -3,6 +3,11 @@ require_once(__DIR__ . "/DataSource.php");
 require_once(__DIR__ . "/../entidad/Usuario.php");
 
 class UsuarioDAO {
+
+    public function borrarUsuario($id) {
+        $sql = "INSERT INTO usuario VALUES (:idUsuario, :nombre_completo, :correo, :usuario, :rol, :contrasena)";
+        
+    }
     
     public function autenticarUsuario($correo, $contrasena) {
         $data_source = new DataSource();
