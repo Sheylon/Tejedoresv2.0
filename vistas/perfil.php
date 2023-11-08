@@ -102,7 +102,15 @@ if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'],
         </div>
     </div>
 
-    <div class="">
+    <div class="opciones">
+        <ul>
+            <li>
+            <a href="">Editas datos</a>
+            </li>
+            <li>
+            <a href="../controlador/action/act_eliminateCuenta.php">Eliminar Cuenta</a>
+            </li>
+        </ul>
     </div>
 
 

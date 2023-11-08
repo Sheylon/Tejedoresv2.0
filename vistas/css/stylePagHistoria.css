@@ -22,9 +22,9 @@
     background-color: #363535;
     height: 120px;
   }
-.profile-dropdown-btn{
+/* .profile-dropdown-btn{
   display: flex;
-}
+} */
   .profile-img {
     position: relative;
     width: 10px;
@@ -40,10 +40,10 @@
     text-align: right
   }
 
-  ul li{
+  /* ul li{
     display: inline-block;
     padding: 0px 20px;
-  }
+  } */
   span {
     font-size: 16px;
     vertical-align: middle; /* Alinear verticalmente con el div */
@@ -172,7 +172,7 @@
   }
   
   .submenu li a{
-    display: block;
+    /* display: block; */
     padding: 15px;
     color: black;
     font-family: 'Open sans';
@@ -208,10 +208,10 @@
     opacity: 1;
   }
   
- ul li{
+ /* ul li{
     display: inline-block;
     padding: 0px 20px;
-  }
+  } */
 
  a{
     color: white ;
