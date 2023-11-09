@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -21,10 +20,10 @@ session_start();
 
 <body>
 <header>
-        <div class="seccion">
-            <ul>
-                <li>
-                    <ul class="menu">
+    <div class="seccion">
+        <ul>
+            <li>
+                <ul class="menu">
                     <li>
                     <?php
                     if (isset($_SESSION['NOMBRE_USUARIO'])) {
@@ -42,50 +41,55 @@ session_start();
                         echo '<a href="RegistroLogin.php" class="enlace_seccion">Inicio | Registro</a>';
                     }
                     ?>
-                </li>
-                    </ul>
-                </li>
-                
-            </ul>
-        </div>
-        <div class="contenido-header">
-            <div class="logo">
-                <img src="img/Logo.png" alt="Logo De la tienda">
-            </div>
-            <nav>
-                <ul class="menu">
-                    <li><a href="">Productos</a>
-                        <ul class="submenu2">
-                            <li><a href="funciones/Productos/Ropa/index.html">Ropa</a></li>
-                            <li><a href="funciones/Productos/Zapatos/index.html">Calzado</a></li>
-                            <li><a href="">Bolsos</a></li>
-                            <li><a href="">Cocina</a></li>
-                            <li><a href="">Baño</a></li>
-                            <li><a href="">Accesorios</a></li>
-                        </ul>
-                    </li>
-        
-                    <li><a href="">Comunidad</a>
-                        <ul class="submenu2">
-                            <li><a href="">Novedades</a></li>
-                            <li><a href="funciones/comunidad/donaciones/index.html">Donacciones</a></li>
-                            <li><a href="funciones/comunidad/intercambiar/index.html">Intercambiar</a></li>
-                        </ul>
-                    </li>
-        
-                    <li>
-                        <a href="funciones/locales/index.html">Locales cercanos</a> 
                     </li>
                 </ul>
-            </nav>
-            <div class="compra">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>   
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="contenido-header">
+        <div class="logo">
+            <img src="img/Logo.png" alt="Logo De la tienda">
         </div>
-    </header>
-    <div class="editar-perfil">
+        <nav>
+            <ul class="menu">
+                <li><a href="">Productos</a>
+                    <ul class="submenu2">
+                        <li><a href="funciones/Productos/Ropa/index.html">Ropa</a></li>
+                        <li><a href="funciones/Productos/Zapatos/index.html">Calzado</a></li>
+                        <li><a href="">Bolsos</a></li>
+                        <li><a href="">Cocina</a></li>
+                        <li><a href="">Baño</a></li>
+                        <li><a href="">Accesorios</a></li>
+                    </ul>
+                </li>
+    
+                <li><a href="">Comunidad</a>
+                    <ul class="submenu2">
+                        <li><a href="">Novedades</a></li>
+                        <li><a href="funciones/comunidad/donaciones/index.html">Donacciones</a></li>
+                        <li><a href="funciones/comunidad/intercambiar/index.html">Intercambiar</a></li>
+                    </ul>
+                </li>
+    
+                <li>
+                    <a href="funciones/locales/index.html">Locales cercanos</a> 
+                </li>
+            </ul>
+        </nav>
+        <div class="compra">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>   
+    </div>
+</header>
+
+
+
+<div class="editar-perfil">
     <h2>Editar Perfil</h2>
     <form action="../controlador/action/act_editarPerfil.php" method="post">
+        <input type="texto" name="idUsuario" value="<?php echo $_SESSION['ID_USUARIO']; ?>" hidden>
         <div class="form-group">
             <label for="NOMBRE_USUARIO">Nombre Completo:</label>
             <input type="text" class="form-control" name="NOMBRE_USUARIO" value="<?php echo $_SESSION['NOMBRE_USUARIO']; ?>">
@@ -102,18 +106,16 @@ session_start();
             <label for="ROL_USUARIO">Rol:</label>
             <input type="text" class="form-control" name="ROL_USUARIO" value="<?php echo $_SESSION['ROL_USUARIO']; ?>">
         </div>
+        
         <div class="form-group">
             <label for="contrasena">Contraseña:</label>
-            <input type="password" class="form-control" name="contrasena" value="<?php echo $_SESSION['contrasena']; ?>">
+            <input type="text" class="form-control" name="contrasena" value="<?php echo $_SESSION['CONTRASENA_USUARIO']; ?>">
         </div>
-        <input type="hidden" name="idUsuario">
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>
 
-
 <footer class="footer-distributed">
-
 <div class="footer-left">
     <img src="img/Logo.png" alt="logo">
 

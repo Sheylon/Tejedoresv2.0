@@ -18,6 +18,7 @@
                     $_SESSION['CORREO_USUARIO'] = $usuario->getCorreo();
                     $_SESSION['USUARIO'] = $usuario->getUsuario();
                     $_SESSION['ROL_USUARIO'] = $usuario->getRol();
+                    $_SESSION['CONTRASENA_USUARIO'] = $usuario->getContrasena();
                     header('Location: ../../vistas/index.php');
                     echo 'Conectado exitosamente a la Base de Datos';
 
