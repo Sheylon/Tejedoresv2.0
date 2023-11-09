@@ -30,7 +30,7 @@
     }
 
     function modificarUsuario($usuario){
-        require_once(__DIR__."/../../modelo/dao/usuarioDAO.phpp");
+        require_once(__DIR__."/../../modelo/dao/usuarioDAO.php");
         $dao=new UsuarioDAO();
         $resultado=$dao->modificarUsuario($usuario);
         return $resultado;

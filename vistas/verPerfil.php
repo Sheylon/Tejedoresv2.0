@@ -1,9 +1,11 @@
 <?php
 session_start();
-if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'], 
-            $_SESSION['CORREO_USUARIO'], $_SESSION['USUARIO'], $_SESSION['ROL_USUARIO'] )){
-    header("Location =index");
+if(isset($_SESSION['ID_USUARIO']) !=  null){
+    
+}else{
+    header("Location =RegistroLogin.php");
 }
+
 ?>
 
 <!DOCTYPE html>

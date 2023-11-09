@@ -89,7 +89,7 @@ session_start();
 <div class="editar-perfil">
     <h2>Editar Perfil</h2>
     <form action="../controlador/action/act_editarPerfil.php" method="post">
-        <input type="texto" name="idUsuario" value="<?php echo $_SESSION['ID_USUARIO']; ?>" hidden>
+        <input type="texto" name="ID_USUARIO" value="<?php echo $_SESSION['ID_USUARIO']; ?>" hidden>
         <div class="form-group">
             <label for="NOMBRE_USUARIO">Nombre Completo:</label>
             <input type="text" class="form-control" name="NOMBRE_USUARIO" value="<?php echo $_SESSION['NOMBRE_USUARIO']; ?>">
@@ -108,8 +108,8 @@ session_start();
         </div>
         
         <div class="form-group">
-            <label for="contrasena">Contraseña:</label>
-            <input type="text" class="form-control" name="contrasena" value="<?php echo $_SESSION['CONTRASENA_USUARIO']; ?>">
+            <label for="CONTRASENA_USUARIOa">Contraseña:</label>
+            <input type="text" class="form-control" name="CONTRASENA_USUARIO" value="<?php echo $_SESSION['CONTRASENA_USUARIO']; ?>">
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
