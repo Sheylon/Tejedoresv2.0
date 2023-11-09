@@ -7,7 +7,7 @@
     $nombreCompleto = $_POST['NOMBRE_USUARIO'];
     $correo = $_POST['USUARIO'];
     $usuario = $_POST['CORREO_USUARIO'];
-    $rol = $_POST['rol'];
+    $rol = $_POST['ROL_USUARIO'];
     $contrasena = $_POST['contrasena'];
 
     // Crear una instancia de la clase Usuario
