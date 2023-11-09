@@ -82,8 +82,8 @@ class UsuarioDAO {
     
     public function modificarUsuario(Usuario $usuario) {
         $data_source = new DataSource();
-        $sql = "UPDATE usuario SET nombre = :nombre, email = :email, usuario = :usuario, 
-                rol = :rol, clave = :clave WHERE idUsuario = :idUsuario";
+        $sql = "UPDATE usuario SET nombre_completo= :nombre, email = :email, usuario = :usuario, 
+                rol = :rol, contrasena = :clave WHERE idUsuario = :idUsuario";
         
         $resultado = $data_source->ejecutarActualizacion($sql, array(
             ':nombre_completo' => $usuario->getNombreCompleto(),
