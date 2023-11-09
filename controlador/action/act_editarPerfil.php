@@ -5,13 +5,23 @@
     require_once (__DIR__.'/../mdb/mdbUsuario.php');
 
     $idUsuario = $_POST['ID_USUARIO']; 
-    $nombre_completoo = $_POST['NOMBRE_USUARIO'];
-    $usuario = $_POST['CORREO_USUARIO'];
-    $correo = $_POST['USUARIO'];
+    $nombre_completo = $_POST['NOMBRE_USUARIO'];
+    $usuario = $_POST['USUARIO'];
+    $correo = $_POST['CORREO_USUARIO'];
     $rol = $_POST['ROL_USUARIO'];
     $contrasena = $_POST['CONTRASENA_USUARIO'];
 
     $usuario = new Usuario($idUsuario, $nombre_completo, $correo, $usuario, $rol, $contrasena);
-    modificarUsuario($usuario);
+    $ret = modificarUsuario($usuario);
+
+     
+		if($ret != 0){ 
+            $_SESSION['ID_USUARIO'] = $usuario->getIdUsuario();
+            $_SESSION['NOMBRE_USUARIO'] = $usuario->getNombreCompleto(); 
+            $_SESSION['CORREO_USUARIO'] = $usuario->getCorreo();
+            $_SESSION['USUARIO'] = $usuario->getUsuario();
+            $_SESSION['ROL_USUARIO'] = $usuario->getRol();
+            $_SESSION['CONTRASENA_USUARIO'] = $usuario->getContrasena();
+        }
     
-    header("Location:../../vistas/verPerfil");
+    header("Location:../../vistas/verPerfil.php");
