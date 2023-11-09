@@ -1,9 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'], 
-            $_SESSION['CORREO_USUARIO'], $_SESSION['USUARIO'], $_SESSION['ROL_USUARIO'] )){
-    header("Location =index");
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -11,10 +8,10 @@ if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'],
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Pefil</title> 
+    <title>Editar Pefil</title> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="css/stylePagHistoria.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/styleEditarPerfil.css">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
@@ -86,27 +83,82 @@ if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'],
             </div>   
         </div>
     </header>
+    <div class="editar-perfil">
+    <h2>Editar Perfil</h2>
+    <form action="../controlador/action/act_editarPerfil.php" method="post">
+        <div class="form-group">
+            <label for="NOMBRE_USUARIO">Nombre Completo:</label>
+            <input type="text" class="form-control" name="NOMBRE_USUARIO" value="<?php echo $_SESSION['NOMBRE_USUARIO']; ?>">
+        </div>
+        <div class="form-group">
+            <label for="USUARIO">Nombre de Usuario:</label>
+            <input type="text" class="form-control" name="USUARIO" value="<?php echo $_SESSION['USUARIO']; ?>">
+        </div>
+        <div class="form-group">
+            <label for="CORREO_USUARIO">Correo:</label>
+            <input type="email" class="form-control" name="CORREO_USUARIO" value="<?php echo $_SESSION['CORREO_USUARIO']; ?>">
+        </div>
+        <div class="form-group">
+            <label for="ROL_USUARIO">Rol:</label>
+            <input type="text" class="form-control" name="ROL_USUARIO" value="<?php echo $_SESSION['ROL_USUARIO']; ?>">
+        </div>
+        <div class="form-group">
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" class="form-control" name="contrasena" value="<?php echo $_SESSION['contrasena']; ?>">
+        </div>
+        <input type="hidden" name="idUsuario">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
 
-    <div class="card">
-        <form action= "../controlador/action/act_registrarUsuario.php" method="POST" class="formulario__register">
-            <h2>Regístrarse</h2>
-            <input type="text" placeholder="Nombre completo" name="Nombre_completo">
-            <input type="text" placeholder="Correo Electronico" name="Correo">
-            <input type="text" placeholder="Usuario" name="Usuario">
-            <select name="rol" id="rol">
-            <option value="" style="color: gray;" disabled selected hidden>Registrar como</option>
-            <option value="usuario">Usuario</option>
-            <option value="Vendedor">Vendedor</option>
-            </select>
-            <input type="password" placeholder="Contrasena" name="contrasena">
-            <button>Regístrarse</button>
-        </form>
+
+<footer class="footer-distributed">
+
+<div class="footer-left">
+    <img src="img/Logo.png" alt="logo">
+
+    <p class="footer-links">
+        <a href="index.html">Home</a>
+        |
+        <a href="">About</a>
+        |
+        <a href="">Contact</a>
+        |
+        <a href="">Blog</a>
+    </p>
+
+    <p class="footer-company-name">Copyright © 2021 <strong>TejedoresDeCulturaSantaMarta</strong> All rights reserved</p>
+</div>
+
+<div class="footer-center">
+    <div>
+        <i class="fa fa-map-marker"></i>
+        <p><span>Santa Marta</span>
+            Colombia</p>
     </div>
 
+    <div>
+        <i class="fa fa-phone"></i>
+        <p>+57 321*38**75</p>
+    </div>
+    <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:sagar00001.co@gmail.com">TculturaSantaMarta@gmail.com</a></p>
+    </div>
+</div>
 
-
-    <footer>
-        <!-- Agregar contenido del pie de página -->
-    </footer>
-</body>
+<div class="footer-right">
+    <p class="footer-company-about">
+        <span>About the company</span>
+    </p>
+    <div class="footer-icons">
+        <a href=""><i class="fa fa-facebook"></i></a>
+        <a href=""><i class="fa fa-instagram"></i></a>
+        <a href=""><i class="fa fa-linkedin"></i></a>
+        <a href=""><i class="fa fa-twitter"></i></a>
+        <a href=""><i class="fa fa-youtube"></i></a>
+    </div>
+</div>
+</footer>       
+<body> 
 </html>

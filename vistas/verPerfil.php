@@ -35,7 +35,7 @@ if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'],
                         echo '<ul class="submenu2">';
                         echo '<li><a clas="enlace_seccion" href="funciones/carrito/index.html"><i class="fa-solid fa-cart-shopping"></i> Compras</a></li>';
                         echo '<li><a clas="enlace_seccion" href="funciones/Vender/index.html"><i class="fa-solid fa-chart-line"></i> Vender</a></li>';
-                        echo '<li><a href="./verPerfil.php"><i class="fa-regular fa-user"></i> Perfil</a></li>';
+                        echo '<li><a href="../controlador/action/act_editarPerfil.php"><i class="fa-regular fa-user"></i> Perfil</a></li>';
                         echo '<li><a href="#"><i class="fa-solid fa-sliders"></i> Configuración</a></li>';
                         echo '<li><a href="#"><i class="fa-regular fa-circle-question"></i> Servicio de soporte</a></li>';
                         echo '<hr />';
@@ -105,7 +105,7 @@ if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'],
     <div class="opciones">
     <ul>
         <li>
-            <a href="#" class="button">Editas datos</a>
+            <a href="./editarPerfil.php" class="button">Editas datos</a>
         </li>
         <li>
             <a href="../controlador/action/act_eliminateCuenta.php" class="button2">Eliminar Cuenta</a>
@@ -117,8 +117,53 @@ if(isset($_SESSION['ID_USUARIO'], $_SESSION['$NOMBRE_USUARIO'],
 
 
 
-    <footer>
-        <!-- Agregar contenido del pie de página -->
-    </footer>
-</body>
+<footer class="footer-distributed">
+
+<div class="footer-left">
+    <img src="img/Logo.png" alt="logo">
+
+    <p class="footer-links">
+        <a href="index.html">Home</a>
+        |
+        <a href="">About</a>
+        |
+        <a href="">Contact</a>
+        |
+        <a href="">Blog</a>
+    </p>
+
+    <p class="footer-company-name">Copyright © 2021 <strong>TejedoresDeCulturaSantaMarta</strong> All rights reserved</p>
+</div>
+
+<div class="footer-center">
+    <div>
+        <i class="fa fa-map-marker"></i>
+        <p><span>Santa Marta</span>
+            Colombia</p>
+    </div>
+
+    <div>
+        <i class="fa fa-phone"></i>
+        <p>+57 321*38**75</p>
+    </div>
+    <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:sagar00001.co@gmail.com">TculturaSantaMarta@gmail.com</a></p>
+    </div>
+</div>
+
+<div class="footer-right">
+    <p class="footer-company-about">
+        <span>About the company</span>
+    </p>
+    <div class="footer-icons">
+        <a href=""><i class="fa fa-facebook"></i></a>
+        <a href=""><i class="fa fa-instagram"></i></a>
+        <a href=""><i class="fa fa-linkedin"></i></a>
+        <a href=""><i class="fa fa-twitter"></i></a>
+        <a href=""><i class="fa fa-youtube"></i></a>
+    </div>
+</div>
+</footer>       
+<body> 
 </html>
