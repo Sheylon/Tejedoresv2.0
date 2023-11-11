@@ -15,3 +15,4 @@
     modificarUsuario($usuario);
     
     header("Location:../../vistas/verPerfil");
+    ?>
