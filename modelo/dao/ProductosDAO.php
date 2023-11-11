@@ -1,6 +1,9 @@
 <?php
 require_once(__DIR__ . "/DataSource.php");
 require_once(__DIR__ . "/../entidad/Productos.php");
+require_once(__DIR__ . "/../entidad/Foto.php");
+require_once(__DIR__ . "/../entidad/Color.php");  
+require_once(__DIR__ . "/../entidad/Talla.php");
 
 class ProductosDAO {
 
@@ -18,6 +21,37 @@ class ProductosDAO {
             ':idTalla' => $producto->getIdTalla(),
             ':idFoto' => $producto->getIdFoto(),
             ':idTipoProducto' => $producto->getIdTipoProducto()
+        ));
+        return $resultado;
+    }
+
+    public function insertarColor(Color $color) {
+        $data_source = new DataSource();
+        $sql = "INSERT INTO color (color) VALUES (:color)";
+        
+        $resultado = $data_source->ejecutarActualizacion($sql, array(
+            ':color' => $color->getColor()
+        ));
+        return $resultado;
+    }
+
+    public function insertarTalla(Talla $talla) {
+        $data_source = new DataSource();
+        $sql = "INSERT INTO talla (talla) VALUES (:talla)";
+        
+        $resultado = $data_source->ejecutarActualizacion($sql, array(
+            ':talla' => $talla->getTalla()
+        ));
+        return $resultado;
+    }
+
+    public function insertarFoto(Foto $foto) {
+        $data_source = new DataSource();
+        $sql = "INSERT INTO fotos (urlFoto, idProducto) VALUES (:urlFoto, :idProducto)";
+        
+        $resultado = $data_source->ejecutarActualizacion($sql, array(
+            ':urlFoto' => $foto->getUrlFoto(),
+            ':idProducto' => $foto->getIdProducto()
         ));
         return $resultado;
     }
@@ -85,6 +119,18 @@ class ProductosDAO {
             ':idProducto' => $producto->getIdProducto()
         ));
 
+        return $resultado;
+    }
+
+    public function modificarFoto(Foto $foto) {
+        $data_source = new DataSource();
+        $sql = "UPDATE fotos SET urlFoto = :urlFoto, idProducto = :idProducto WHERE idFoto = :idFoto";
+        
+        $resultado = $data_source->ejecutarActualizacion($sql, array(
+            ':urlFoto' => $foto->getUrlFoto(),
+            ':idProducto' => $foto->getIdProducto(),
+            ':idFoto' => $foto->getIdFoto()
+        ));
         return $resultado;
     }
 

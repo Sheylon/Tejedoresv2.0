@@ -29,7 +29,7 @@ CREATE TABLE talla (
 
 CREATE TABLE tipoProducto (
     idTipoProducto serial PRIMARY KEY,
-    nombre_producto varchar(50) NOT NULL
+    nombre_Tipoproducto varchar(50) NOT NULL
 );
 
 CREATE TABLE fotos (
