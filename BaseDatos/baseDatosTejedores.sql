@@ -1,3 +1,5 @@
+--Creando tablas 
+
 -- Crear la tabla usuario
 CREATE TABLE usuario (
     idUsuario serial PRIMARY KEY,
