@@ -1,4 +1,4 @@
---Creando tablas 
+-- Creando tablas 
 
 -- Crear la tabla usuario
 CREATE TABLE usuario (
@@ -8,12 +8,6 @@ CREATE TABLE usuario (
     usuario varchar(50) NOT NULL,
     rol varchar(50) NOT NULL,
     contrasena varchar(50) NOT NULL
-);
-
--- Crear la tabla color
-CREATE TABLE color (
-    idColor serial PRIMARY KEY,
-    Color varchar(50) NOT NULL
 );
 
 -- Crear la tabla talla
@@ -42,10 +36,10 @@ CREATE TABLE producto (
     descripcion varchar(250) NOT NULL,
     unidadesDisponibles integer NOT NULL,
     valorUnidad DECIMAL NOT NULL,
-    idColor integer NOT NULL,
     idTalla integer NOT NULL,
     idFoto integer NOT NULL,
-    idTipoProducto integer NOT NULL
+    idTipoProducto integer NOT NULL,
+    idUsuario integer NOT NULL
 );
 
 -- Crear la tabla compra
@@ -58,16 +52,31 @@ CREATE TABLE compra (
 );
 
 
--- Agregar las restricciones de clave foránea
-ALTER TABLE foto
-ADD CONSTRAINT fk_producto FOREIGN KEY (idProducto) REFERENCES producto(idProducto);
+-- -- Agregar las restricciones de clave foránea
+-- ALTER TABLE foto
+-- ADD CONSTRAINT fk_producto FOREIGN KEY (idProducto) REFERENCES producto(idProducto);
 
-ALTER TABLE producto
-ADD CONSTRAINT fk_color FOREIGN KEY (idColor) REFERENCES color(idColor),
-ADD CONSTRAINT fk_talla FOREIGN KEY (idTalla) REFERENCES talla(idTalla),
-ADD CONSTRAINT fk_foto FOREIGN KEY (idFoto) REFERENCES foto(idFoto), 
-ADD CONSTRAINT fk_tipoProducto FOREIGN KEY (idTipoProducto) REFERENCES tipoProducto(idTipoProducto);
+-- ALTER TABLE producto
+-- ADD CONSTRAINT fk_color FOREIGN KEY (idColor) REFERENCES color(idColor),
+-- ADD CONSTRAINT fk_talla FOREIGN KEY (idTalla) REFERENCES talla(idTalla),
+-- ADD CONSTRAINT fk_foto FOREIGN KEY (idFoto) REFERENCES foto(idFoto), 
+-- ADD CONSTRAINT fk_tipoProducto FOREIGN KEY (idTipoProducto) REFERENCES tipoProducto(idTipoProducto);
 
-ALTER TABLE compra
-ADD CONSTRAINT fk_producto FOREIGN KEY (idProducto) REFERENCES producto(idProducto),
-ADD CONSTRAINT fk_usuario FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario);
+-- ALTER TABLE compra
+-- ADD CONSTRAINT fk_producto FOREIGN KEY (idProducto) REFERENCES producto(idProducto),
+-- ADD CONSTRAINT fk_usuario FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario);
+
+
+-- Datos de las Tablas 
+
+INSERT INTO talla (talla) VALUES
+    ('XS'),
+    ('S'),
+    ('M'),
+    ('L');
+
+INSERT INTO tipoProducto (nombre_producto) VALUES
+    ('Ropa'),
+    ('Accesorio')
+
+ 
