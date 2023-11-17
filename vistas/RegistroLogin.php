@@ -20,6 +20,7 @@ if(isset($_SESSION ['Usuario'])){
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/a12187352c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styleRegistroLogin.css">
+    <link rel="stylesheet" href="css/styleHeaderFooter.css">
 
     <title>RegistroLogin</title>
 </head>

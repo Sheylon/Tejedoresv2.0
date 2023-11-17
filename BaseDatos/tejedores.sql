@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2023 a las 21:30:11
+-- Tiempo de generación: 17-11-2023 a las 18:17:55
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -173,8 +173,7 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`idusuario`, `nombre_completo`, `correo`, `usuario`, `rol`, `contrasena`) VALUES
 (1, 'yeimer campo', 'yeimer@gmail.com', 'yei', 'administrador', '1234'),
 (2, 'pedro perez', 'pedro@gmail.com', 'pedro', 'usuario', '345'),
-(3, 'camilo lopez', 'camilo@gmail.com', 'camilo', 'usuario', '1234'),
-(4, 'sheylon ', 'sheylon@gmail.com', 'el pana', 'usuario', '12345');
+(3, 'camilo lopez', 'camilo@gmail.com', 'camilo', 'usuario', '1234');
 
 --
 -- Índices para tablas volcadas
@@ -190,13 +189,13 @@ ALTER TABLE `carrito`
 --
 -- Indices de la tabla `categoriaproducto`
 --
-ALTER TABLE `categoriaproducto`
+  ALTER TABLE `categoriaproducto`
   ADD PRIMARY KEY (`idcategoriaproducto`);
 
 --
 -- Indices de la tabla `detallecarrito`
 --
-ALTER TABLE `detallecarrito`
+ ALTER TABLE `detallecarrito`
   ADD PRIMARY KEY (`iddetallecarrito`),
   ADD KEY `detallecarrito_fk0` (`idcarrito`),
   ADD KEY `detallecarrito_fk1` (`idproducto`);
@@ -367,6 +366,3 @@ ALTER TABLE `producto`
   ADD CONSTRAINT `producto_fk1` FOREIGN KEY (`idtalla`) REFERENCES `talla` (`idtalla`);
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
