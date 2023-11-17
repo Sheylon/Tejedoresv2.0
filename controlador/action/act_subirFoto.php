@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $tamañoArchivo = $_FILES['foto']['size'];
         $archivoTemporal = $_FILES['foto']['tmp_name'];
 
-        $directorioDestino = __DIR__ . "/../../Fotos"; // Ajusta la ruta según sea necesario
+        $directorioDestino = __DIR__ . "/../../Fotos"; 
         // Genera un nombre de archivo único para evitar sobrescribir archivos existentes
         $archivoDestino = $directorioDestino . uniqid() . '_' . basename($_FILES["foto"]["name"]);
         
