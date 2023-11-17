@@ -9,7 +9,7 @@ if (isset($_POST['nombreCategoria'], $_POST['descripcionCategoria'])) {
     $nombreCategoria = $_POST['nombreCategoria'];
     $descripcionCategoria = $_POST['descripcionCategoria'];
     
-    $categoriaProducto = autenticarCategoriaProducto($nombreCategoria, $descripcionCategoria);
+    $categoriaProducto = leerCategorias($nombreCategoria, $descripcionCategoria);
 
     if ($categoriaProducto != null) { // Puede autenticar la categoría de producto
         $_SESSION['ID_CATEGORIA'] = $categoriaProducto->getIdCategoriaProducto();

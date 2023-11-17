@@ -3,6 +3,12 @@ session_start();
 if(isset($_SESSION['NOMBRE_USUARIO'])){
     header("Location = Bienvenida.php");
 }
+if (isset($_SESSION['ID_CATEGORIA'], $_SESSION['NOMBRE_CATEGORIA'])) {
+        // Procesar la inserción del producto aquí
+        // ...
+    
+        echo 'Producto insertado exitosamente';
+    }
 ?>
 
 
@@ -26,53 +32,35 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
         ?>
 
         <div action="../controlador/action/act_registrarProducto.php" method="post" class="container">
-                <h2>Insertar Producto</h2>
-                <form id="productForm">
-
-                        <label for="categoria">Categoría:</label>
-                        <select name="categoria" id="categoria">
-                        <option value="" style="color: gray;" disabled selected hidden>categoria</option>
-                        <option value="usuario">Ropa</option>
-                        <option value="Vendedor">Accesorio</option>
-
-                        <label for="talla">Talla:</label>
-                        <select name="talla" id="talla">
-                        <option value="" style="color: gray;" disabled selected hidden>Talla</option>
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre_producto" required>
+        <h1>Inserción de Producto</h1>
+        <form id="productForm">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
 
                 <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" required></textarea>
+                <textarea id="descripcion" name="descripcion" required></textarea>
 
-                <label for="unidades">Unidades Disponibles:</label>
-                <input type="number" id="unidades" required>
+                <label for="unidades">Unidades disponibles:</label>
+                <input type="number" id="unidades" name="unidades" required>
 
-                <label for="valor">Valor por Unidad:</label>
-                <input type="number" id="valor" required>
+                <label for="valor">Valor por unidad:</label>
+                <input type="number" id="valor" name="valor" required>
 
-                <label for="categoria">Categoría:</label>
-                <select id="categoria" onchange="mostrarTalla()">
-                        <!-- Las opciones de categorías se cargarán dinámicamente desde la base de datos usando JavaScript -->
+                <label for="idCategoria">Categoría:</label>
+                <select id="idCategoria" name="idCategoria" action="../controlador/action/act_categoriaProducto.php" required>
+                <?php if($_SESSION['ID_CATEGORIA']==null)
+                        echo $_SESSION['NOMBRE_CATEGORIA'];
+
+                ?>
                 </select>
 
-                <div id="tallaContainer" style="display: none;">
-                        <label for="talla">Talla:</label>
-                        <select id="talla">
-                        <!-- Las opciones de tallas se cargarán dinámicamente desde la base de datos usando JavaScript -->
-                        </select>
+        <label for="tallaProducto">Talla:</label>
+        <input type="text" id="tallaProducto" name="tallaProducto">
                 </div>
 
-                <label for="imagen">Imagen del Producto:</label>
-                <input type="file" id="imagen" accept="image/*" required>
-
-                <button type="button" onclick="registrarProducto()">Registrar Producto</button>
-                </form>
-                </div>        
+                <button type="submit">Insertar Producto</button>
+        </form>
+        </div>        
 
         <?php 
         require_once("./Templates/Footer.php");
