@@ -2,6 +2,7 @@
 
 session_start();
 
+
 // Verifica si el formulario fue enviado
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Verifica si se seleccionó un archivo para subir
@@ -22,17 +23,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (in_array($tipoArchivo, $formatosPermitidos)) {
             // Mueve el archivo subido al directorio de destino
             if (move_uploaded_file($_FILES["foto"]["tmp_name"], $archivoDestino)) {
-                // Subida de archivo exitosa, redirige a una página de éxito o realiza más procesamiento
+                // Subida de archivo exitosa.
                 header("Location: ../../vistas/index.php?msg=Foto subida exitosamente");
                 exit();
             } else {
                 // Error al mover el archivo, redirige con un mensaje de error
-                header("Location: ../../vistas/SubirFoto.php?msg=Error al subir la foto");
+                header("Location: ../../vistas/RegistroProducto.php?msg=Error al subir la foto");
                 exit();
             }
         } else {
             // Formato de archivo no válido, redirige con un mensaje de error
-            header("Location: ../../vistas/SubirFoto.php?msg=Formato de archivo no válido");
+            header("Location: ../../vistas/RegistroProducto.php?msg=Formato de archivo no válido");
             exit();
         }
     } else {
