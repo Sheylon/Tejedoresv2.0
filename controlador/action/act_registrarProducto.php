@@ -12,13 +12,12 @@ if (
     $descripcion = $_POST['descripcion'];
     $unidadesDisponibles = $_POST['unidades_disponibles'];
     $valorUnidad = $_POST['valor_unidad'];
-    $idColor = $_POST['id_color'];
     $idTalla = $_POST['id_talla'];
     $idFoto = $_POST['id_foto'];
     $idTipoProducto = $_POST['id_tipo_producto'];
 
    
-    $producto = new Producto( null, $nombreProducto, $descripcion, $unidadesDisponibles, $valorUnidad, $idColor, $idTalla, $idFoto, $idTipoProducto);
+    $producto = new Producto( null, $nombreProducto, $descripcion, $unidadesDisponibles, $valorUnidad, $idTalla, $idFoto, $idTipoProducto);
 
     $resultado = insertarProducto($producto);
 
