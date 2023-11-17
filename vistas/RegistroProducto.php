@@ -26,11 +26,25 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
         ?>
 
         <div action="../controlador/action/act_registrarProducto.php" method="post" class="container">
-        <div class="container">
-                <h2>Registrar Producto</h2>
-                <form id="productForm" enctype="multipart/form-data">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" required>
+                <h2>Insertar Producto</h2>
+                <form id="productForm">
+
+                        <label for="categoria">Categoría:</label>
+                        <select name="categoria" id="categoria">
+                        <option value="" style="color: gray;" disabled selected hidden>categoria</option>
+                        <option value="usuario">Ropa</option>
+                        <option value="Vendedor">Accesorio</option>
+
+                        <label for="talla">Talla:</label>
+                        <select name="talla" id="talla">
+                        <option value="" style="color: gray;" disabled selected hidden>Talla</option>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre_producto" required>
 
                 <label for="descripcion">Descripción:</label>
                 <textarea id="descripcion" required></textarea>
