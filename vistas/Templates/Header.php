@@ -1,5 +1,5 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-   <header>
+
+<header>
         <div class="seccion">
             <ul>
                 <li>

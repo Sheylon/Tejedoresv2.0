@@ -1,36 +1,61 @@
-function insertarProducto() {
-    const nombre = document.getElementById('nombre').value;
-    const descripcion = document.getElementById('descripcion').value;
-    const unidades = document.getElementById('unidades').value;
-    const valor = document.getElementById('valor').value;
-    const categoria = document.getElementById('categoria').value;
-  
-    // Realizar la petición AJAX para insertar el producto en la base de datos
-    // Aquí deberías usar una biblioteca como fetch o jQuery.ajax para la comunicación con el servidor
-  
-    // Ejemplo de cómo podrías enviar los datos al servidor usando fetch
-    fetch('/insertar_producto.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        nombre,
-        descripcion,
-        unidades,
-        valor,
-        categoria,
-      }),
-    })
-    .then(response => response.json())
-    .then(data => {
-      // Aquí puedes manejar la respuesta del servidor
-      console.log(data);
-      alert('Producto insertado con éxito');
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Hubo un error al insertar el producto');
-    });
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+$(document).ready(function () {
+  // Cargar categorías y tallas al cargar la página
+  cargarCategoriasTallas();
+
+  function cargarCategoriasTallas() {
+      $.ajax({
+          url: 'obtener_categorias_tallas.php',
+          type: 'GET',
+          dataType: 'json',
+          success: function (data) {
+              // Llenar el select de categorías con las obtenidas
+              var selectCategoria = $('#categoria');
+              selectCategoria.empty();
+
+              $.each(data.categorias, function (index, categoria) {
+                  selectCategoria.append($('<option>', {
+                      value: categoria.idCategoriaProducto,
+                      text: categoria.nombre
+                  }));
+              });
+
+              // Llenar el select de tallas con las obtenidas
+              var selectTalla = $('#talla');
+              selectTalla.empty();
+
+              $.each(data.tallas, function (index, talla) {
+                  selectTalla.append($('<option>', {
+                      value: talla.idtalla,
+                      text: talla.talla
+                  }));
+              });
+
+              // Mostrar la primera categoría en el formulario (puedes ajustar según tus necesidades)
+              mostrarTalla();
+          },
+          error: function (error) {
+              console.error('Error al obtener categorías y tallas:', error);
+          }
+      });
   }
-  
+
+  // Función para mostrar la sección de talla según la categoría seleccionada
+  function mostrarTalla() {
+      var categoriaSeleccionada = $('#categoria').val();
+      var tallaContainer = $('#tallaContainer');
+
+      // Lógica para mostrar o ocultar la sección de talla según la categoría
+      if (categoriaSeleccionada === 'ropa') {
+          tallaContainer.show();
+      } else {
+          tallaContainer.hide();
+      }
+  }
+
+  // Llamar a mostrarTalla cuando cambie la categoría seleccionada
+  $('#categoria').on('change', mostrarTalla);
+});
