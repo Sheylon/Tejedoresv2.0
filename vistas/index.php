@@ -13,6 +13,7 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
     <title>Tejedores</title> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="css/stylePagHistoria.css">
+    <link rel="stylesheet" href="css/styleHeaderFooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
     
     <script src="https://kit.fontawesome.com/a12187352c.js" crossorigin="anonymous"></script>
@@ -42,8 +43,6 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
         </ul>
     </div>
 
-
-    
     <div class="about">
         <h2>Nuestra Historia</h2>
         <p>Somos una plataforma dedicada a promover y preservar las artesanías locales. Nuestra misión es conectar a los amantes de las artesanías con los talentosos artesanos de nuestra comunidad. Creemos en la belleza y la autenticidad de las piezas hechas a mano, y queremos compartir esta pasión contigo.</p>
