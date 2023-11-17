@@ -57,6 +57,7 @@ CREATE TABLE compra (
     Cantidad integer NOT NULL
 );
 
+
 -- Agregar las restricciones de clave foránea
 ALTER TABLE foto
 ADD CONSTRAINT fk_producto FOREIGN KEY (idProducto) REFERENCES producto(idProducto);
