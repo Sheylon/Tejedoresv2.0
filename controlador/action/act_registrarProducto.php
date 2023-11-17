@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once(__DIR__ . "/../../modelo/entidad/Productos.php");
+require_once(__DIR__ . "/../../modelo/entidad/Producto.php");
 require_once(__DIR__ . "/../mdb/mdbProductos.php");
 
 if (

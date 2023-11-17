@@ -11,7 +11,7 @@ class Foto {
         $this->urlFoto = $urlFoto;
         $this->idProducto = $idProducto;
     }
- 
+
     public function getIdFoto() {
         return $this->idFoto;
     }
