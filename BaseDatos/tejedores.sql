@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2023 a las 18:17:55
+-- Tiempo de generación: 17-11-2023 a las 21:30:11
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -44,6 +44,18 @@ CREATE TABLE `categoriaproducto` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `categoriaproducto`
+--
+
+INSERT INTO `categoriaproducto` (`idcategoriaproducto`, `nombre`, `descripcion`) VALUES
+(1, 'Ropa', NULL),
+(2, 'Calzado', NULL),
+(3, 'Bolsos', NULL),
+(4, 'Cocina', NULL),
+(5, 'Baño', NULL),
+(6, 'Accesorios', NULL);
 
 -- --------------------------------------------------------
 
@@ -124,7 +136,19 @@ CREATE TABLE `producto` (
   `descripcion` varchar(5000) NOT NULL,
   `unidadesDisponibles` int(11) NOT NULL,
   `valorUnidad` decimal(10,0) NOT NULL,
-  `idcategoriaproducto` int(11) NOT NULL
+  `idcategoriaproducto` int(11) NOT NULL,
+  `idtalla` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `talla`
+--
+
+CREATE TABLE `talla` (
+  `idtalla` int(11) NOT NULL,
+  `talla` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -149,7 +173,8 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`idusuario`, `nombre_completo`, `correo`, `usuario`, `rol`, `contrasena`) VALUES
 (1, 'yeimer campo', 'yeimer@gmail.com', 'yei', 'administrador', '1234'),
 (2, 'pedro perez', 'pedro@gmail.com', 'pedro', 'usuario', '345'),
-(3, 'camilo lopez', 'camilo@gmail.com', 'camilo', 'usuario', '1234');
+(3, 'camilo lopez', 'camilo@gmail.com', 'camilo', 'usuario', '1234'),
+(4, 'sheylon ', 'sheylon@gmail.com', 'el pana', 'usuario', '12345');
 
 --
 -- Índices para tablas volcadas
@@ -211,7 +236,14 @@ ALTER TABLE `pedido`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`idProducto`),
-  ADD KEY `producto_fk0` (`idcategoriaproducto`);
+  ADD KEY `producto_fk0` (`idcategoriaproducto`),
+  ADD KEY `producto_fk1` (`idtalla`);
+
+--
+-- Indices de la tabla `talla`
+--
+ALTER TABLE `talla`
+  ADD PRIMARY KEY (`idtalla`);
 
 --
 -- Indices de la tabla `usuario`
@@ -234,7 +266,7 @@ ALTER TABLE `carrito`
 -- AUTO_INCREMENT de la tabla `categoriaproducto`
 --
 ALTER TABLE `categoriaproducto`
-  MODIFY `idcategoriaproducto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcategoriaproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `detallecarrito`
@@ -273,10 +305,16 @@ ALTER TABLE `producto`
   MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `talla`
+--
+ALTER TABLE `talla`
+  MODIFY `idtalla` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -325,7 +363,8 @@ ALTER TABLE `pedido`
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_fk0` FOREIGN KEY (`idcategoriaproducto`) REFERENCES `categoriaproducto` (`idcategoriaproducto`);
+  ADD CONSTRAINT `producto_fk0` FOREIGN KEY (`idcategoriaproducto`) REFERENCES `categoriaproducto` (`idcategoriaproducto`),
+  ADD CONSTRAINT `producto_fk1` FOREIGN KEY (`idtalla`) REFERENCES `talla` (`idtalla`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
