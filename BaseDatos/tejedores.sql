@@ -1,22 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2023 a las 18:17:55
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Base de datos: `tejedores`
 --
@@ -44,18 +25,6 @@ CREATE TABLE `categoriaproducto` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `categoriaproducto`
---
-
-INSERT INTO `categoriaproducto` (`idcategoriaproducto`, `nombre`, `descripcion`) VALUES
-(1, 'Ropa', NULL),
-(2, 'Calzado', NULL),
-(3, 'Bolsos', NULL),
-(4, 'Cocina', NULL),
-(5, 'Baño', NULL),
-(6, 'Accesorios', NULL);
 
 -- --------------------------------------------------------
 
@@ -137,7 +106,8 @@ CREATE TABLE `producto` (
   `unidadesDisponibles` int(11) NOT NULL,
   `valorUnidad` decimal(10,0) NOT NULL,
   `idcategoriaproducto` int(11) NOT NULL,
-  `idtalla` int(11) DEFAULT NULL
+  `idtalla` int(11) DEFAULT NULL,
+  `idusuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -166,14 +136,12 @@ CREATE TABLE `usuario` (
   `contrasena` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `usuario`
---
 
-INSERT INTO `usuario` (`idusuario`, `nombre_completo`, `correo`, `usuario`, `rol`, `contrasena`) VALUES
-(1, 'yeimer campo', 'yeimer@gmail.com', 'yei', 'administrador', '1234'),
-(2, 'pedro perez', 'pedro@gmail.com', 'pedro', 'usuario', '345'),
-(3, 'camilo lopez', 'camilo@gmail.com', 'camilo', 'usuario', '1234');
+
+
+
+
+
 
 --
 -- Índices para tablas volcadas
@@ -236,7 +204,8 @@ ALTER TABLE `pedido`
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`idProducto`),
   ADD KEY `producto_fk0` (`idcategoriaproducto`),
-  ADD KEY `producto_fk1` (`idtalla`);
+  ADD KEY `producto_fk1` (`idtalla`),
+  ADD KEY `producto_fk2` (`idusuario`);
 
 --
 -- Indices de la tabla `talla`
@@ -251,9 +220,10 @@ ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idusuario`),
   ADD UNIQUE KEY `correo` (`correo`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
+
+
+
+
 
 --
 -- AUTO_INCREMENT de la tabla `carrito`
@@ -315,6 +285,13 @@ ALTER TABLE `talla`
 ALTER TABLE `usuario`
   MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
+
+
+
+
+
+
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -363,6 +340,41 @@ ALTER TABLE `pedido`
 --
 ALTER TABLE `producto`
   ADD CONSTRAINT `producto_fk0` FOREIGN KEY (`idcategoriaproducto`) REFERENCES `categoriaproducto` (`idcategoriaproducto`),
-  ADD CONSTRAINT `producto_fk1` FOREIGN KEY (`idtalla`) REFERENCES `talla` (`idtalla`);
+  ADD CONSTRAINT `producto_fk1` FOREIGN KEY (`idtalla`) REFERENCES `talla` (`idtalla`),
+  ADD CONSTRAINT `producto_fk2` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`);
 COMMIT;
 
+
+
+
+
+
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`idusuario`, `nombre_completo`, `correo`, `usuario`, `rol`, `contrasena`) VALUES
+(1, 'yeimer campo', 'yeimer@gmail.com', 'yei', 'administrador', '1234'),
+(2, 'pedro perez', 'pedro@gmail.com', 'pedro', 'usuario', '345'),
+(3, 'camilo lopez', 'camilo@gmail.com', 'camilo', 'usuario', '1234');
+
+
+--
+-- Volcado de datos para la tabla `talla`
+--
+
+INSERT INTO `talla` (`idtalla`, `talla`) VALUES
+(1, 'XS'),
+(2, 'S'),
+(3, 'M'),
+(4, 'L');
+
+--
+-- Volcado de datos para la tabla `talla`
+--
+
+INSERT INTO `categoriaproducto` (`idcategoriaproducto`, `nombre`, `descripcion`) VALUES
+(1, 'Ropa', 'El término ropa, ​ vestimenta o indumentaria es la denominación genérica​ que reciben las prendas'),
+(2, 'Accesorios', 'los accesorios de moda son detalles que le damos al estilismo para 
+ponerle el broche final al mismo.Nos referimos a joyas o bisutería, gafas de sol, pañuelos, etc.' );

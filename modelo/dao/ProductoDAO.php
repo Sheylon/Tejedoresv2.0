@@ -6,47 +6,49 @@ require_once(__DIR__ . "/../entidad/Talla.php");
 
 class ProductoDAO {
 
-    public function buscarProductoPorId($id) {
-        $data_source = new DataSource();
-        $data_table = $data_source->ejecutarConsulta("SELECT * FROM producto WHERE idProducto = :id", 
-                                                    array(':id' => $id));
-        $producto = null;
-        if (count($data_table) == 1) {
-            $producto = new Producto(
-                $data_table[0]["idProducto"],
-                $data_table[0]["nombre"],
-                $data_table[0]["descripcion"],
-                $data_table[0]["unidadesDisponibles"],
-                $data_table[0]["valorUnidad"],
-                $data_table[0]["idCategoriaProducto"]
-            );
-            return $producto;
-        } else {
-            return null;
-        }
-    }    
+    // public function buscarProductoPorId($id) {
+    //     $data_source = new DataSource();
+    //     $data_table = $data_source->ejecutarConsulta("SELECT * FROM producto WHERE idProducto = :id", 
+    //                                                 array(':id' => $id));
+    //     $producto = null;
+    //     if (count($data_table) == 1) {
+    //         $producto = new Producto(
+    //             $data_table[0]["idProducto"],
+    //             $data_table[0]["nombre"],
+    //             $data_table[0]["descripcion"],
+    //             $data_table[0]["unidadesDisponibles"],
+    //             $data_table[0]["valorUnidad"],
+    //             $data_table[0]["idCategoriaProducto"],
+    //             $data_table[0]["idusuario"]
+    //         );
+    //         return $producto;
+    //     } else {
+    //         return null;
+    //     }
+    // }    
     
-    public function leerProductos() {
-        $data_source = new DataSource();
-        $data_table = $data_source->ejecutarConsulta("SELECT * FROM producto");
-        $productos = array();
-        foreach ($data_table as $row) {
-            $producto = new Producto(
-                $row["idProducto"],
-                $row["nombre"],
-                $row["descripcion"],
-                $row["unidadesDisponibles"],
-                $row["valorUnidad"],
-                $row["idCategoriaProducto"]
-            );
-            array_push($productos, $producto);
-        }
-        return $productos;   
-    }
+    // public function leerProductos() {
+    //     $data_source = new DataSource();
+    //     $data_table = $data_source->ejecutarConsulta("SELECT * FROM producto");
+    //     $productos = array();
+    //     foreach ($data_table as $row) {
+    //         $producto = new Producto(
+    //             $row["idProducto"],
+    //             $row["nombre"],
+    //             $row["descripcion"],
+    //             $row["unidadesDisponibles"],
+    //             $row["valorUnidad"],
+    //             $row["idCategoriaProducto"],
+    //             $data_table[0]["idusuario"]
+    //         );
+    //         array_push($productos, $producto);
+    //     }
+    //     return $productos;   
+    // }
     
     public function insertarProducto(Producto $producto) {
         $data_source = new DataSource();
-        $sql = "INSERT INTO producto VALUES (:idProducto, :nombre, :descripcion, :unidadesDisponibles, :valorUnidad, :idCategoriaProducto)";
+        $sql = "INSERT INTO producto VALUES (:idProducto, :nombre, :descripcion, :unidadesDisponibles, :valorUnidad, :idcategoriaproducto, :idtalla, :idusuario)";
         
         $resultado = $data_source->ejecutarActualizacion($sql, array(
             ':idProducto' => $producto->getIdProducto(),
@@ -54,29 +56,32 @@ class ProductoDAO {
             ':descripcion' => $producto->getDescripcion(),
             ':unidadesDisponibles' => $producto->getUnidadesDisponibles(),
             ':valorUnidad' => $producto->getValorUnidad(),
-            ':idCategoriaProducto' => $producto->getIdCategoriaProducto()
+            ':idcategoriaproducto' => $producto->getIdCategoriaProducto(),
+            ':idtalla' => $producto->getIdTalla(),
+            ':idusuario' => $producto->getIdUsuario(),
         ));
         return $resultado;
     }
     
-    public function modificarProducto(Producto $producto) {
-        $data_source = new DataSource();
+    // public function modificarProducto(Producto $producto) {
+    //     $data_source = new DataSource();
 
-        $sql = "UPDATE producto SET nombre = :nombre, descripcion = :descripcion, 
-                unidadesDisponibles = :unidadesDisponibles, valorUnidad = :valorUnidad,
-                idCategoriaProducto = :idCategoriaProducto WHERE idProducto = :idProducto";
+    //     $sql = "UPDATE producto SET nombre = :nombre, descripcion = :descripcion, 
+    //             unidadesDisponibles = :unidadesDisponibles, valorUnidad = :valorUnidad,
+    //             idCategoriaProducto = :idCategoriaProducto, idusuario = :idusuario WHERE idProducto = :idProducto";
         
-        $resultado = $data_source->ejecutarActualizacion($sql, array(
-            ':nombre' => $producto->getNombre(),
-            ':descripcion' => $producto->getDescripcion(),
-            ':unidadesDisponibles' => $producto->getUnidadesDisponibles(),
-            ':valorUnidad' => $producto->getValorUnidad(),
-            ':idCategoriaProducto' => $producto->getIdCategoriaProducto(),
-            ':idProducto' => $producto->getIdProducto()
-        ));
+    //     $resultado = $data_source->ejecutarActualizacion($sql, array(
+    //         ':nombre' => $producto->getNombre(),
+    //         ':descripcion' => $producto->getDescripcion(),
+    //         ':unidadesDisponibles' => $producto->getUnidadesDisponibles(),
+    //         ':valorUnidad' => $producto->getValorUnidad(),
+    //         ':idCategoriaProducto' => $producto->getIdCategoriaProducto(),
+    //         ':idProducto' => $producto->getIdProducto(),
+    //         ':idusuario' => $producto->getIdUsuario(),
+    //     ));
         
-        return $resultado;
-    }
+    //     return $resultado;
+    // }
     
     public function borrarProducto($id) {
         $data_source = new DataSource();

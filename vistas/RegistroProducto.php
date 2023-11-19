@@ -1,14 +1,9 @@
 <?php
 session_start();
-if(isset($_SESSION['NOMBRE_USUARIO'])){
-    header("Location = Bienvenida.php");
+if(isset($_SESSION['NOMBRE_USUARIO'])){   
+}else{
+        header('Location = RegistroLogin.php');
 }
-if (isset($_SESSION['ID_CATEGORIA'], $_SESSION['NOMBRE_CATEGORIA'])) {
-        // Procesar la inserción del producto aquí
-        // ...
-    
-        echo 'Producto insertado exitosamente';
-    }
 ?>
 
 
@@ -32,37 +27,34 @@ if (isset($_SESSION['ID_CATEGORIA'], $_SESSION['NOMBRE_CATEGORIA'])) {
         ?>
 
         <div action="../controlador/action/act_registrarProducto.php" method="post" class="container">
-        <h1>Inserción de Producto</h1>
-        <form id="productForm">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <h1>Inserción de Producto</h1>
+                <form id="productForm">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
 
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" required></textarea>
+                        <label for="descripcion">Descripción:</label>
+                        <textarea id="descripcion" name="descripcion" required></textarea>
 
-                <label for="unidades">Unidades disponibles:</label>
-                <input type="number" id="unidades" name="unidades" required>
+                        <label for="unidades">Unidades disponibles:</label>
+                        <input type="number" id="unidades" name="unidades_disponibles" required>
 
-                <label for="valor">Valor por unidad:</label>
-                <input type="number" id="valor" name="valor" required>
+                        <label for="valor">Valor por unidad:</label>
+                        <input type="number" id="valor_unidad" name="valor_unidad" required>
 
-                <label for="idCategoria">Categoría:</label>
-                <select id="idCategoria" name="idCategoria" action="../controlador/action/act_categoriaProducto.php" required>
-                <?php if($_SESSION['ID_CATEGORIA']==null)
-                        echo $_SESSION['NOMBRE_CATEGORIA'];
+                        <label for="idCategoria">Categoría:</label>
+                        <input type="number" id="idcategoriaproducto" name="idcategoriaproducto" required>
 
-                ?>
-                </select>
+                        <label for="idTalla">Talla:</label>
+                        <input type="number" id="id_talla" name="id_talla" required>
 
-        <label for="tallaProducto">Talla:</label>
-        <input type="text" id="tallaProducto" name="tallaProducto">
+                        <input type="texto" name="id_usuario" value="<?php echo $_SESSION['ID_USUARIO']; ?>" hidden>
                 </div>
 
                 <button type="submit">Insertar Producto</button>
-        </form>
-        </div>        
-
-        <?php 
+                </form>
+        </div>    
+        
+         <?php 
         require_once("./Templates/Footer.php");
         ?>
         
