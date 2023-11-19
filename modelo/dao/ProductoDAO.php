@@ -1,8 +1,6 @@
 <?php
 require_once(__DIR__ . "/DataSource.php");
 require_once(__DIR__ . "/../entidad/Producto.php");
-require_once(__DIR__ . "/../entidad/Foto.php");
-require_once(__DIR__ . "/../entidad/Talla.php");
 
 class ProductoDAO {
 

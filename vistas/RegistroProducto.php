@@ -26,9 +26,9 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
         require_once("./Templates/Header.php");
         ?>
 
-        <div action="../controlador/action/act_registrarProducto.php" method="post" class="container">
+        <div class="container">
                 <h1>Inserción de Producto</h1>
-                <form id="productForm">
+                <form id="productForm" action="../controlador/action/act_registrarProducto.php" method="post">
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" required>
 
@@ -48,9 +48,8 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
                         <input type="number" id="id_talla" name="id_talla" required>
 
                         <input type="texto" name="id_usuario" value="<?php echo $_SESSION['ID_USUARIO']; ?>" hidden>
-                </div>
-
-                <button type="submit">Insertar Producto</button>
+              
+                        <button type="submit">Insertar Producto</button>
                 </form>
         </div>    
         
