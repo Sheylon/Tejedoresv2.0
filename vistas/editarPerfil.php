@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_SESSION['NOMBRE_USUARIO'])){   
+}else{
+        header('Location = RegistroLogin.php');
+}
 ?>
 
 <!DOCTYPE html>

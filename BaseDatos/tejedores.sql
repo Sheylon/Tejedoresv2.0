@@ -357,7 +357,8 @@ COMMIT;
 INSERT INTO `usuario` (`idusuario`, `nombre_completo`, `correo`, `usuario`, `rol`, `contrasena`) VALUES
 (1, 'yeimer campo', 'yeimer@gmail.com', 'yei', 'administrador', '1234'),
 (2, 'pedro perez', 'pedro@gmail.com', 'pedro', 'usuario', '345'),
-(3, 'camilo lopez', 'camilo@gmail.com', 'camilo', 'usuario', '1234');
+(3, 'camilo lopez', 'camilo@gmail.com', 'camilo', 'usuario', '1234'),
+(4, 'Sheylon', 'sheylon@gmail.com', 'mr.sheylon', 'Vendedor', '12s');
 
 
 --
