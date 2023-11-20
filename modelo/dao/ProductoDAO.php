@@ -56,7 +56,7 @@ class ProductoDAO {
             ':valorUnidad' => $producto->getValorUnidad(),
             ':idcategoriaproducto' => $producto->getIdCategoriaProducto(),
             ':idtalla' => $producto->getIdTalla(),
-            ':idusuario' => $producto->getIdUsuario(),
+            ':idusuario' => $producto->getIdUsuario()
         ));
         return $resultado;
     }
