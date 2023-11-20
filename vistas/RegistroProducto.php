@@ -42,7 +42,7 @@ if(isset($_SESSION['ID_USUARIO']) !=  null){
                         <input type="number" id="valor_unidad" name="valor_unidad" required>
 
                         <label for="idTalla">idUsuario:</label>
-                        <input type="number" id="id_usuario" name="id_usuario" required>
+                        <input type="text" id="id_usuario" name="id_usuario" value="<?php echo $_SESSION['ID_USUARIO']; ?>" required>
 
                         <label for="idCategoria">Categoría:</label>
                         <input type="number" id="idcategoriaproducto" name="idcategoriaproducto" required>
