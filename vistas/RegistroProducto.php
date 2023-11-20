@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['NOMBRE_USUARIO'])){   
+if(isset($_SESSION['ID_USUARIO']) !=  null){
 }else{
         header('Location = RegistroLogin.php');
 }
@@ -41,19 +41,23 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
                         <label for="valor">Valor por unidad:</label>
                         <input type="number" id="valor_unidad" name="valor_unidad" required>
 
+                        <label for="idTalla">idUsuario:</label>
+                        <input type="number" id="id_usuario" name="id_usuario" required>
+                        
                         <label for="idCategoria">Categoría:</label>
                         <input type="number" id="idcategoriaproducto" name="idcategoriaproducto" required>
 
                         <label for="idTalla">Talla:</label>
                         <input type="number" id="id_talla" name="id_talla" required>
 
-                        <input type="texto" name="id_usuario" value="<?php echo $_SESSION['ID_USUARIO']; ?>" hidden>
-              
+                        
+
+                        <input type="number" name="id_usuario" value="<?php echo $_SESSION['ID_USUARIO']; ?>" hidden>
                         <button type="submit">Insertar Producto</button>
                 </form>
         </div>    
         
-         <?php 
+        <?php 
         require_once("./Templates/Footer.php");
         ?>
         
