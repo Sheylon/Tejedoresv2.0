@@ -20,7 +20,11 @@ if (isset($_POST['nombre'], $_POST['descripcion'], $_POST['unidades_disponibles'
 
     $resultado = insertarProducto($producto);
 
-    // $producto = leerProductos();
+    if ($resultado != 0) {
+        $idProducto = buscarProductoPorNombre($nombreProducto);
+
+        
+    }
 
 
 

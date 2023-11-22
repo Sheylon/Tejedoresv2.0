@@ -203,6 +203,7 @@ ALTER TABLE `pedido`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`idProducto`),
+  ADD UNIQUE KEY `nombre` (`nombre`),
   ADD KEY `producto_fk0` (`idcategoriaproducto`),
   ADD KEY `producto_fk1` (`idtalla`),
   ADD KEY `producto_fk2` (`idusuario`);

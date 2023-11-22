@@ -4,26 +4,35 @@ require_once(__DIR__ . "/../entidad/Producto.php");
 
 class ProductoDAO {
 
-    // public function buscarProductoPorId($id) {
-    //     $data_source = new DataSource();
-    //     $data_table = $data_source->ejecutarConsulta("SELECT * FROM producto WHERE idProducto = :id", 
-    //                                                 array(':id' => $id));
-    //     $producto = null;
-    //     if (count($data_table) == 1) {
-    //         $producto = new Producto(
-    //             $data_table[0]["idProducto"],
-    //             $data_table[0]["nombre"],
-    //             $data_table[0]["descripcion"],
-    //             $data_table[0]["unidadesDisponibles"],
-    //             $data_table[0]["valorUnidad"],
-    //             $data_table[0]["idCategoriaProducto"],
-    //             $data_table[0]["idusuario"]
-    //         );
-    //         return $producto;
-    //     } else {
-    //         return null;
-    //     }
-    // }    
+
+    public function buscarProductoPorNombre($nombreProducto) {
+        $data_source = new DataSource();
+        $idproducto = $data_source->ejecutarConsulta("SELECT idProducto FROM producto WHERE nombre = :nombre", 
+                                                    array(':nombre' => $nombreProducto));
+        return $idproducto;  
+    } 
+
+    public function buscarProductoPorId($id) {
+        $data_source = new DataSource();
+        $data_table = $data_source->ejecutarConsulta("SELECT * FROM producto WHERE idProducto = :id", 
+                                                    array(':id' => $id));
+        $producto = null;
+        if (count($data_table) == 1) {
+            $producto = new Producto(
+                $data_table[0]["idProducto"],
+                $data_table[0]["nombre"],
+                $data_table[0]["descripcion"],
+                $data_table[0]["unidadesDisponibles"],
+                $data_table[0]["valorUnidad"],
+                $data_table[0]["idCategoriaProducto"],
+                $data_table[0]["idtalla"],
+                $data_table[0]["idusuario"]
+            );
+            return $producto;
+        } else {
+            return null;
+        }
+    }    
     
     public function leerProductos() {
         $data_source = new DataSource();
