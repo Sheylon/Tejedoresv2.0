@@ -34,12 +34,12 @@ function insertarProducto($producto) {
     return $resultado;
 }
 
-function modificarProducto($producto) {
-    require_once(__DIR__."/../../modelo/dao/productoDAO.php");
-    $dao = new ProductoDAO();
-    $resultado = $dao->modificarProducto($producto);
-    return $resultado;
-}
+// function modificarProducto($producto) {
+//     require_once(__DIR__."/../../modelo/dao/productoDAO.php");
+//     $dao = new ProductoDAO();
+//     $resultado = $dao->modificarProducto($producto);
+//     return $resultado;
+// }
 
 function borrarProducto($id) {
     require_once(__DIR__."/../../modelo/dao/productoDAO.php");

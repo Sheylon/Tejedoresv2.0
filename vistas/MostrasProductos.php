@@ -32,33 +32,37 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
 <div class="container-title">Ropa</div>
 
     <?php
-    foreach ( $_SESSION['PRODUCTOS']  as $Producto) {
-    }
-    ?>
-    
-    
-    <div class="card-container">
+    $listproducto = $_SESSION['PRODUCTOS']->fetchALL(PDO::FETCH_ASSOC);
 
-        <div class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img src="img/blusa-2.jpg" alt="" />
-                    <div class="overlay">
-                        <a href="#" class="buy-btn">Buy Now</a>
+    ?>
+
+
+
+    <?php foreach ( $listproducto  as $Producto) { ?>
+
+        <div class="card-container">
+            <div class="item-a">
+                <div class="box">
+                    <div class="slide-img">
+                        <img src="img/blusa-2.jpg" alt="" />
+                        <div class="overlay">
+                            <a href="#" class="buy-btn">Buy Now</a>
+                        </div>
                     </div>
-                </div>
-              
-                <div class="detail-box">
-                    <div class="type">
-                        <a><?php echo $Producto['nombre']; ?></a>
-                       
+                
+                    <div class="detail-box">
+                        <div class="type">
+                            <a><?php echo $Producto['nombre']; ?></a>
+                        
+                        </div>
+                        <a class="price"><?php echo $Producto['valorUnidad']; ?></a>
                     </div>
-                    <a class="price"><?php echo $Producto['valorUnidad']; ?></a>
                 </div>
             </div>
         </div>
-    </div>
 
+    <?php } ?>
+    
     <footer>
         <?php
         require_once("./Templates/Footer.php");
