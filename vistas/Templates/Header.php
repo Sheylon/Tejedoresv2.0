@@ -30,17 +30,14 @@
         </div>
         <div class="contenido-header">
             <div class="logo">
-                <img src="img/Logo.png" alt="Logo De la tienda">
+                
+                <a href="./index.php"><img src="img/Logo.png" alt="Logo De la tienda"></a>
             </div>
             <nav>
                 <ul class="menu">
                     <li><a href="">Productos</a>
                         <ul class="submenu2">
                             <li><a href="funciones/Productos/Ropa/index.html">Ropa</a></li>
-                            <li><a href="funciones/Productos/Zapatos/index.html">Calzado</a></li>
-                            <li><a href="">Bolsos</a></li>
-                            <li><a href="">Cocina</a></li>
-                            <li><a href="">Baño</a></li>
                             <li><a href="">Accesorios</a></li>
                         </ul>
                     </li>
