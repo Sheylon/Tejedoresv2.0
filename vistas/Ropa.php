@@ -29,6 +29,13 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
         ?>
     </header>
     
+    <?php
+    $Producto = leerProductos()();
+    foreach ( $_SESSION['PRODUCTOS']  as $Producto) {
+    
+    }
+    ?>
+    
     <div class="container-title">Ropa</div>
     
     <div class="card-container">
@@ -44,10 +51,10 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
               
                 <div class="detail-box">
                     <div class="type">
-                        <a>Blusa</a>
-                        <span>Mujer</span>
+                        <a><?php echo $Producto['nombre']; ?></a>
+                       
                     </div>
-                    <a class="price">Rs.20,000</a>
+                    <a class="price"><?php echo $Producto['valorUnidad']; ?></a>
                 </div>
             </div>
         </div>

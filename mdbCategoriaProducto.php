@@ -15,6 +15,9 @@ function insertarCategoria($nombre, $descripcion) {
     return $resultado;
 }
 
+
+
+
 function modificarCategoria($categoria) {
     $dao = new CategoriaProductoDAO();
     $resultado = $dao->modificarCategoria($categoria);
