@@ -29,6 +29,7 @@ if(isset($_SESSION['ID_USUARIO']) !=  null){
         <div class="container">
                 <h1>Inserción de Producto</h1>
                 <form id="productForm" action="../controlador/action/act_registrarProducto.php" method="post">
+
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" required>
 
@@ -41,18 +42,13 @@ if(isset($_SESSION['ID_USUARIO']) !=  null){
                         <label for="valor">Valor por unidad:</label>
                         <input type="number" id="valor_unidad" name="valor_unidad" required>
 
-                        <label for="idTalla">idUsuario:</label>
-                        <input type="text" id="id_usuario" name="id_usuario" value="<?php echo $_SESSION['ID_USUARIO']; ?>" required>
-
+                    
                         <label for="idCategoria">Categoría:</label>
                         <input type="number" id="idcategoriaproducto" name="idcategoriaproducto" required>
 
                         <label for="idTalla">Talla:</label>
                         <input type="number" id="id_talla" name="id_talla" required>
 
-                        
-
-                        <!--<input type="number" name="id_usuario" value="<?php echo $_SESSION['ID_USUARIO']; ?>" hidden>-->
                         <button type="submit">Insertar Producto</button>
                 </form>
         </div>    
