@@ -45,18 +45,15 @@ if(isset($_SESSION['ID_USUARIO']) !=  null){
     </div>
 
     <div class="opciones">
-    <ul>
-        <li>
-            <a href="./editarPerfil.php" class="button">Editas datos</a>
-        </li>
-        <li>
-            <a href="../controlador/action/act_eliminateCuenta.php" class="button2">Eliminar Cuenta</a>
-        </li>
-    </ul>
-</div>
-
-
-
+        <ul>
+            <li>
+                <a href="./editarPerfil.php" class="button">Editas datos</a>
+            </li>
+            <li>
+                <a href="../controlador/action/act_eliminateCuenta.php" class="button2">Eliminar Cuenta</a>
+            </li>
+        </ul>
+    </div>
 
 
     <footer>

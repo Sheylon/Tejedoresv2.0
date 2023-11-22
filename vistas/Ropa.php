@@ -14,6 +14,8 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="css/stylePagHistoria.css">
     <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/styleHeaderFooter.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
     
     <script src="https://kit.fontawesome.com/a12187352c.js" crossorigin="anonymous"></script>
