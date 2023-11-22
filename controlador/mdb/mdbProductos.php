@@ -1,5 +1,11 @@
 <?php
 
+function buscarProductoPorNombre($nombreProducto) {
+    require_once(__DIR__."/../../modelo/dao/productoDAO.php");
+    $idProducto = $dao->buscarProductoPorNombre($nombreProducto);
+    return $idProducto;
+}
+
 function buscarProductoPorId($id) {
     require_once(__DIR__."/../../modelo/dao/productoDAO.php");
     $dao = new ProductoDAO();

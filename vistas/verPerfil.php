@@ -13,7 +13,7 @@ if(isset($_SESSION['ID_USUARIO']) !=  null){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Pefil</title> 
+    <title>VerPefil</title> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="css/stylePagHistoria.css">
     <link rel="stylesheet" href="css/styleHeaderFooter.css">
