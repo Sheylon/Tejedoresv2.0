@@ -31,12 +31,13 @@ class ProductoDAO {
         $productos = array();
         foreach ($data_table as $row) {
             $producto = new Producto(
-                $row["idproducto"],
+                $row["idProducto"],
                 $row["nombre"],
                 $row["descripcion"],
                 $row["unidadesDisponibles"],
                 $row["valorUnidad"],
-                $row["idCategoriaProducto"],
+                $row["idcategoriaproducto"],
+                $row["idtalla"],
                 $row["idusuario"]
             );
             array_push($productos, $producto);
@@ -55,12 +56,13 @@ class ProductoDAO {
         
         foreach ($data_table as $row) {
             $producto = new Producto(
-                $row["idproducto"],
+                $row["idProducto"],
                 $row["nombre"],
                 $row["descripcion"],
                 $row["unidadesDisponibles"],
                 $row["valorUnidad"],
-                $row["idCategoriaProducto"],
+                $row["idcategoriaproducto"],
+                $row["idtalla"],
                 $row["idusuario"]
             );
             array_push($productos, $producto);

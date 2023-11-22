@@ -22,6 +22,11 @@ if (isset($_POST['nombre'], $_POST['descripcion'], $_POST['unidades_disponibles'
 
     $resultado = insertarProducto($producto);
 
+    // $producto = leerProductos();
+
+
+
+
     if ($resultado) {
     
         header("Location:../../vistas/index.php?msg=Producto registrado exitosamente");

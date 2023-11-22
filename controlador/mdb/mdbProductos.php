@@ -14,6 +14,13 @@ function leerProductos() {
     return $productos;
 }
 
+function leerProductosVendedor($id) {
+    require_once(__DIR__."/../../modelo/dao/productoDAO.php");
+    $dao = new ProductoDAO();
+    $productos = $dao->leerProductosVendedor($id);
+    return $productos;
+}
+
 function insertarProducto($producto) {
     require_once(__DIR__."/../../modelo/dao/productoDAO.php");
     $dao = new ProductoDAO();
