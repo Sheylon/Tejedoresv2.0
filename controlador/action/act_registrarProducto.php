@@ -18,13 +18,13 @@ if (isset($_POST['nombre'], $_POST['descripcion'], $_POST['unidades_disponibles'
     
     $producto = new Producto( null, $nombreProducto, $descripcion, $unidadesDisponibles, $valorUnidad, $idTipoProducto, $idTalla, $idusuario);
 
-    $resultado = insertarProducto($producto);
+    // $resultado = insertarProducto($producto);
 
-    if ($resultado != 0) {
-        $idProducto = buscarProductoPorNombre($nombreProducto);
+    // if ($resultado != 0) {
+    //     $idProducto = buscarProductoPorNombre($nombreProducto);
 
-        
-    }
+
+    // }
 
 
 

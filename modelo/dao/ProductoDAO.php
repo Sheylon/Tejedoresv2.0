@@ -79,6 +79,8 @@ class ProductoDAO {
         
         return $productos;
     }
+
+    
     public function insertarProducto(Producto $producto) {
         $data_source = new DataSource();
         $sql = "INSERT INTO producto VALUES (:idProducto, :nombre, :descripcion, :unidadesDisponibles, :valorUnidad, :idcategoriaproducto, :idtalla, :idusuario)";

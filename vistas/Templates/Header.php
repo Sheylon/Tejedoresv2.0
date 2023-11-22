@@ -37,7 +37,7 @@
                 <ul class="menu">
                     <li><a href="">Productos</a>
                         <ul class="submenu2">
-                            <li><a href="funciones/Productos/Ropa/index.html">Ropa</a></li>
+                            <li><a href="../controlador/action/act_mostrarProducto.php">Ropa</a></li>
                             <li><a href="">Accesorios</a></li>
                         </ul>
                     </li>
