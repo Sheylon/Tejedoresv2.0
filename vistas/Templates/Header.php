@@ -30,7 +30,8 @@
         </div>
         <div class="contenido-header">
             <div class="logo">
-                <img src="img/Logo.png" alt="Logo De la tienda">
+                
+                <a href="./index.php"><img src="img/Logo.png" alt="Logo De la tienda"></a>
             </div>
             <nav>
                 <ul class="menu">
