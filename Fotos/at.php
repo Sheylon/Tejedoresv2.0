@@ -57,26 +57,7 @@ class DataSource {
         }
     }
     
-    public function ejecutarActualizacion($sql = "", $values = array()){
-        if ($sql != "") {
-            // Se prepara la consulta SQL
-            $consulta = $this->conexion->prepare($sql);
-            
-            // Se ejecuta la consulta con los valores proporcionados
-            $consulta->execute($values);
-            
-            // Se obtiene el número de filas afectadas por la consulta
-            $numeroFilasAfectadas = $consulta->rowCount();
-            
-            // Se cierra la conexión
-            $this->conexion = null;
-            
-            // Se devuelve el número de filas afectadas
-            return $numeroFilasAfectadas;
-        } else {
-            return 0; // Si la consulta está vacía, se devuelve 0
-        }
-    }
+  
 }
 
 ?>
