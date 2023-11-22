@@ -15,8 +15,6 @@ if (isset($_POST['nombre'], $_POST['descripcion'], $_POST['unidades_disponibles'
     $idTipoProducto = $_POST['idcategoriaproducto'];
     $idTalla = $_POST['id_talla'];
     $idusuario =  $_SESSION['ID_USUARIO'];
-
-   
     
     $producto = new Producto( null, $nombreProducto, $descripcion, $unidadesDisponibles, $valorUnidad, $idTipoProducto, $idTalla, $idusuario);
 

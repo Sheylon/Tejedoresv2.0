@@ -38,10 +38,6 @@
                     <li><a href="">Productos</a>
                         <ul class="submenu2">
                             <li><a href="funciones/Productos/Ropa/index.html">Ropa</a></li>
-                            <li><a href="funciones/Productos/Zapatos/index.html">Calzado</a></li>
-                            <li><a href="">Bolsos</a></li>
-                            <li><a href="">Cocina</a></li>
-                            <li><a href="">Baño</a></li>
                             <li><a href="">Accesorios</a></li>
                         </ul>
                     </li>
