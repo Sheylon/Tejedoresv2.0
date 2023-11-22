@@ -11,11 +11,5 @@ $valorUnidad = $_POST['valorUnidad'];
 $idColor = $_POST['idColor'];
 $idTalla = $_POST['idTalla'];
 
-
-$idTipoProducto = $_POST['idTipoProducto'];
-
-$producto = new Producto($idProducto, $nombreProducto, $descripcion, $unidadesDisponibles, $valorUnidad, $idColor, $idTalla, $idFoto, $idTipoProducto);
-modificarProducto($producto);
-
 header("Location: ../../vistas/verProductos.php");
 ?>
