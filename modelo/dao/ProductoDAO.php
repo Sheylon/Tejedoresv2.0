@@ -25,25 +25,49 @@ class ProductoDAO {
     //     }
     // }    
     
-    // public function leerProductos() {
-    //     $data_source = new DataSource();
-    //     $data_table = $data_source->ejecutarConsulta("SELECT * FROM producto");
-    //     $productos = array();
-    //     foreach ($data_table as $row) {
-    //         $producto = new Producto(
-    //             $row["idProducto"],
-    //             $row["nombre"],
-    //             $row["descripcion"],
-    //             $row["unidadesDisponibles"],
-    //             $row["valorUnidad"],
-    //             $row["idCategoriaProducto"],
-    //             $data_table[0]["idusuario"]
-    //         );
-    //         array_push($productos, $producto);
-    //     }
-    //     return $productos;   
-    // }
-    
+    public function leerProductos() {
+        $data_source = new DataSource();
+        $data_table = $data_source->ejecutarConsulta("SELECT * FROM producto");
+        $productos = array();
+        foreach ($data_table as $row) {
+            $producto = new Producto(
+                $row["idproducto"],
+                $row["nombre"],
+                $row["descripcion"],
+                $row["unidadesDisponibles"],
+                $row["valorUnidad"],
+                $row["idCategoriaProducto"],
+                $row["idusuario"]
+            );
+            array_push($productos, $producto);
+        }
+        return $productos;   
+    }
+
+    public function leerProductosVendedor($idusuario) {
+        $data_source = new DataSource();
+        $query = "SELECT * FROM producto WHERE idusuario = :idusuario";
+        
+        // Enlazar el valor de $idusuario con el marcador de posición :idusuario
+        $data_table = $data_source->ejecutarConsulta($query, [":idusuario" => $idusuario]);
+        
+        $productos = array();
+        
+        foreach ($data_table as $row) {
+            $producto = new Producto(
+                $row["idproducto"],
+                $row["nombre"],
+                $row["descripcion"],
+                $row["unidadesDisponibles"],
+                $row["valorUnidad"],
+                $row["idCategoriaProducto"],
+                $row["idusuario"]
+            );
+            array_push($productos, $producto);
+        }
+        
+        return $productos;
+    }
     public function insertarProducto(Producto $producto) {
         $data_source = new DataSource();
         $sql = "INSERT INTO producto VALUES (:idProducto, :nombre, :descripcion, :unidadesDisponibles, :valorUnidad, :idcategoriaproducto, :idtalla, :idusuario)";
