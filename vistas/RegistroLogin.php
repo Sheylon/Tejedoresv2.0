@@ -36,7 +36,7 @@ if(isset($_SESSION ['Usuario'])){
 
         <div class="contenido-header">
             <div class="logo">
-                <img src="img/Logo.png" alt="Logo De la tienda">
+                <a href="./index.php"><img src="img/Logo.png" alt="Logo De la tienda"></a>
             </div>
             <nav>
                 <ul class="menu">
@@ -96,6 +96,7 @@ if(isset($_SESSION ['Usuario'])){
                         <input type="text" placeholder="Correo Electronico" name= "correo">
                         <input type="password" placeholder="Contraseña" name="contrasena">
                         <button>Entrar</button>
+                        <a id="olvide" href="./restablecerContrasena.php" style="color:#46A2FD; margin-top: 20px;"><h5 >olvide mi contraseña</h5></a>
                     </form>
 
                     <!--Register-->
