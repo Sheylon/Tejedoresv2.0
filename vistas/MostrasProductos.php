@@ -45,7 +45,7 @@ session_start();
                         <div class="slide-img">
                             <img src="img/blusa-2.jpg" alt="" />
                             <div class="overlay">
-                                <a href="#" class="buy-btn">Buy Now</a>
+                                <a href="./verProducto.php" class="buy-btn">Buy Now</a>
                             </div>
                         </div>
                     
