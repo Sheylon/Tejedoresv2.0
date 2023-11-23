@@ -62,14 +62,15 @@ function generarURL()
         $archivoTemporal = $_FILES['image']['tmp_name'];
 
         $directorioDestino = __DIR__ . "/../../Fotos/";
-        $archivoDestino = $directorioDestino . uniqid() . '_' . basename($nombreArchivo);
+        $nombreUnico = uniqid() . '_' . basename($nombreArchivo);
+        $archivoDestino = $directorioDestino . $nombreUnico;
 
         $tipoArchivo = strtolower(pathinfo($archivoDestino, PATHINFO_EXTENSION));
         $formatosPermitidos = array("jpg", "jpeg", "png");
 
         if (in_array($tipoArchivo, $formatosPermitidos)) {
             if (move_uploaded_file($archivoTemporal, $archivoDestino)) {
-                return $archivoDestino;
+                return  $nombreUnico; // Devuelve solo la parte relativa
             } else {
                 // Puedes lanzar una excepción en caso de error
                 throw new Exception("Error al mover el archivo");
@@ -83,4 +84,5 @@ function generarURL()
         throw new Exception("No se seleccionó ningún archivo");
     }
 }
+
 ?>
