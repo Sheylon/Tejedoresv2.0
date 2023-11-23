@@ -26,11 +26,13 @@ if (isset($_POST['nombre'], $_POST['descripcion'], $_POST['unidades_disponibles'
     $resultadoProducto = insertarProducto($producto);
 
     if ($resultadoProducto) {
-        $idProducto = buscarProductoPorNombre($nombreProducto);
+        $idproducto = buscarProductoPorNombre($nombreProducto);
         $urlFoto = generarURL();
+        header("Location:../../vistas/index.php?msg=Producto registrado exitosamente");
+
 
         if ($urlFoto) {
-            $foto = new Foto(null, $urlFoto, 1);
+            $foto = new Foto(null, $urlFoto, $idproducto);
             $resultadoFoto = insertarFoto($foto);
 
             if ($resultadoFoto) {

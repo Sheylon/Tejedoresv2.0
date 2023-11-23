@@ -29,6 +29,7 @@ if(isset($_SESSION['ID_USUARIO']) !=  null){
     <?php 
         require_once("./Templates/Header.php");
     ?>
+
     <div class="card">
         <div class="profile-picture">
             <!-- Aquí puedes agregar la imagen del perfil del usuario -->

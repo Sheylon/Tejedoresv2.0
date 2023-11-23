@@ -7,9 +7,14 @@ class ProductoDAO {
 
     public function buscarProductoPorNombre($nombreProducto) {
         $data_source = new DataSource();
-        $idproducto = $data_source->ejecutarConsulta("SELECT idProducto FROM producto WHERE nombre = :nombre", 
+        $data_table = $data_source->ejecutarConsulta("SELECT idProducto FROM producto WHERE nombre = :nombre", 
                                                     array(':nombre' => $nombreProducto));
-        return $idproducto;  
+        if (count($data_table) == 1) {
+            $idproducto = $data_table[0]["idProducto"];
+            return $idproducto;  
+        } else {
+            return null;
+        }
     } 
 
     public function buscarProductoPorId($id) {

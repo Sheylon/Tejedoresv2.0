@@ -7,8 +7,10 @@ function subirfoto(){
         $archivoTemporal = $_FILES['image']['tmp_name'];
 
         $directorioDestino = __DIR__ . "/../../Fotos"; 
+
         // Genera un nombre de archivo único para evitar sobrescribir archivos existentes
-        $archivoDestino = $directorioDestino . uniqid() . '/' . basename($nombreArchivo);
+        $nombreNuevo = basename($nombreArchivo);
+        $archivoDestino = $directorioDestino . uniqid() . '_' . $nombreNuevo;
         
         // Verifica si el archivo tiene un formato de imagen válido
         $tipoArchivo = strtolower(pathinfo($archivoDestino, PATHINFO_EXTENSION));
@@ -18,8 +20,7 @@ function subirfoto(){
             // Mueve el archivo subido al directorio de destino
             if (move_uploaded_file($archivoTemporal, $archivoDestino)) {
                 // Subida de archivo exitosa.
-                return $archivoTemporal;
-                header("Location: ../../vistas/index.php?msg=Foto subida exitosamente");
+                return $nombreNuevo;
                 exit();
             } else {
                 // Error al mover el archivo, redirige con un mensaje de error

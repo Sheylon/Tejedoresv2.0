@@ -51,38 +51,38 @@ function borrarProducto($id) {
 ?>
 <?php
 
-function buscarCategoriaPorId($id) {
-    require_once(__DIR__."/../../modelo/dao/categoriaProductoDAO.php");
-    $dao = new CategoriaProductoDAO();
-    $categoria = $dao->buscarCategoriaPorId($id);
-    return $categoria;
-}
+// function buscarCategoriaPorId($id) {
+//     require_once(__DIR__."/../../modelo/dao/categoriaProductoDAO.php");
+//     $dao = new CategoriaProductoDAO();
+//     $categoria = $dao->buscarCategoriaPorId($id);
+//     return $categoria;
+// }
 
-function leerCategorias() {
-    require_once(__DIR__."/../../modelo/dao/categoriaProductoDAO.php");
-    $dao = new CategoriaProductoDAO();
-    $categorias = $dao->leerCategorias();
-    return $categorias;
-}
+// function leerCategorias() {
+//     require_once(__DIR__."/../../modelo/dao/categoriaProductoDAO.php");
+//     $dao = new CategoriaProductoDAO();
+//     $categorias = $dao->leerCategorias();
+//     return $categorias;
+// }
 
-function insertarCategoria($categoria) {
-    require_once(__DIR__."/../../modelo/dao/categoriaProductoDAO.php");
-    $dao = new CategoriaProductoDAO();
-    $resultado = $dao->insertarCategoria($categoria);
-    return $resultado;
-}
+// function insertarCategoria($categoria) {
+//     require_once(__DIR__."/../../modelo/dao/categoriaProductoDAO.php");
+//     $dao = new CategoriaProductoDAO();
+//     $resultado = $dao->insertarCategoria($categoria);
+//     return $resultado;
+// }
 
-function modificarCategoria($categoria) {
-    require_once(__DIR__."/../../modelo/dao/categoriaProductoDAO.php");
-    $dao = new CategoriaProductoDAO();
-    $resultado = $dao->modificarCategoria($categoria);
-    return $resultado;
-}
+// function modificarCategoria($categoria) {
+//     require_once(__DIR__."/../../modelo/dao/categoriaProductoDAO.php");
+//     $dao = new CategoriaProductoDAO();
+//     $resultado = $dao->modificarCategoria($categoria);
+//     return $resultado;
+// }
 
-function borrarCategoria($id) {
-    require_once(__DIR__."/../../modelo/dao/categoriaProductoDAO.php");
-    $dao = new CategoriaProductoDAO();
-    $res = $dao->borrarCategoria($id);
-    return $res;
-}
+// function borrarCategoria($id) {
+//     require_once(__DIR__."/../../modelo/dao/categoriaProductoDAO.php");
+//     $dao = new CategoriaProductoDAO();
+//     $res = $dao->borrarCategoria($id);
+//     return $res;
+// }
 ?>

@@ -58,6 +58,9 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
         <p>Nuestro equipo está formado por apasionados defensores de las artesanías locales. Trabajamos en estrecha colaboración con artesanos talentosos y compartimos su compromiso con la calidad y la autenticidad. Juntos, estamos comprometidos en crear una comunidad en línea donde la creatividad y la cultura local florezcan.</p>
     </div>
 
+ 
+  
+   
     <footer>
         <?php 
         require_once("./Templates/Footer.php");
