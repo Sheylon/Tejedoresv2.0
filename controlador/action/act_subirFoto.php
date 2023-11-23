@@ -9,8 +9,8 @@ function subirfoto(){
         $directorioDestino = __DIR__ . "/../../Fotos"; 
 
         // Genera un nombre de archivo único para evitar sobrescribir archivos existentes
-        $nombreNuevo = basename($nombreArchivo);
-        $archivoDestino = $directorioDestino . uniqid() . '_' . $nombreNuevo;
+        // $nombreNuevo = basename($nombreArchivo);
+        $archivoDestino = $directorioDestino . uniqid() . '_' . $nombreArchivo;
         
         // Verifica si el archivo tiene un formato de imagen válido
         $tipoArchivo = strtolower(pathinfo($archivoDestino, PATHINFO_EXTENSION));
@@ -20,7 +20,7 @@ function subirfoto(){
             // Mueve el archivo subido al directorio de destino
             if (move_uploaded_file($archivoTemporal, $archivoDestino)) {
                 // Subida de archivo exitosa.
-                return $nombreNuevo;
+                return $nombreArchivo;
                 exit();
             } else {
                 // Error al mover el archivo, redirige con un mensaje de error
