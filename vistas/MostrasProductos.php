@@ -1,9 +1,10 @@
 <?php
 session_start();
-    require_once("../modelo/dao/ProductoDAO.php"); // Asegúrate de incluir el archivo del ProductoDAO
-
-    if (isset($_SESSION['NOMBRE_USUARIO'])) {
-    }
+    require_once (__DIR__.'/../controlador/mdb/mdbProductos.php');
+    require_once (__DIR__.'/../modelo/entidad/Producto.php');
+    require_once (__DIR__.'/../controlador/mdb/mdbFoto.php');
+    require_once (__DIR__.'/../modelo/entidad/Foto.php');
+    
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +24,7 @@ session_start();
 
 
 <body>
+    
     <header>
         <?php 
         require_once("templates/Header.php");
@@ -31,36 +33,37 @@ session_start();
     
     <div class="container-title">Ropa</div>
 
-    <?php
-        $productoDAO = new ProductoDAO(); // Asegúrate de crear una instancia de ProductoDAO
-        $listproducto = $productoDAO->leerProductos();
-    ?>
-
+    
     <div class="container">
-        <?php foreach ($listproducto as $Producto) { ?>
+        <?php
+        $aregloProducto = leerProductos();
+        foreach ($aregloProducto as $Producto => $produc) { ?>
             
             <div class="card-container">
                 <div class="item-a">
                     <div class="box">
                         <div class="slide-img">
-                            <img src="img/blusa-2.jpg" alt="" />
+                            <!-- <?php  $foto = buscarFotoPorIdProducto($produc->getIdProducto())?> -->
+                            <img src="../Fotos/<?php echo $foto->getUrlFoto() ?>" alt="" />
                             <div class="overlay">
                                 <a href="./verProducto.php" class="buy-btn">Buy Now</a>
                             </div>
                         </div>
-                    
                         <div class="detail-box">
                             <div class="type">
-                                <a><?php echo $Producto->getNombre(); ?></a>
+                                <a><span><?php  echo $produc->getNombre() ?></span></a>
                             </div>
-                            <a class="price"><?php echo $Producto->getValorUnidad(); ?></a>
+                            <a class="price"><?php echo $produc->getNombre() ?></a>
                         </div>
                     </div>
                 </div>
-            </div>
-        
-        <?php } ?>
+            </div>  
+            
+            
+        <?php ; } ?>
     </div>
+
+            
 
     <footer>
         <?php

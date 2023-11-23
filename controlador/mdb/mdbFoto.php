@@ -1,8 +1,15 @@
 <?php
-function buscarFotoPorId($id) {
+    function buscarFotoPorId($id) {
         require_once(__DIR__."/../../modelo/dao/FotoDAO.php");
         $dao = new FotoDAO();
         $foto = $dao->buscarFotoPorId($id);
+        return $foto;
+    }
+
+    function buscarFotoPorIdProducto($id) {
+        require_once(__DIR__."/../../modelo/dao/FotoDAO.php");
+        $dao = new FotoDAO();
+        $foto = $dao->buscarFotoPorIdProducto($id);
         return $foto;
     }
 

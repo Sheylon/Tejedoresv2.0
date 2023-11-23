@@ -1,14 +1,12 @@
 <?php
 
+$_SESSION['Acceso'] = true;
 session_start();
 
 require_once(__DIR__ . "/../../modelo/entidad/Producto.php");
 require_once(__DIR__ . "/../../modelo/entidad/Foto.php");
 require_once(__DIR__ . "/../mdb/mdbProductos.php");
 require_once(__DIR__ . "/../mdb/mdbFoto.php");
-
-
-
 
 if (isset($_POST['nombre'], $_POST['descripcion'], $_POST['unidades_disponibles'],
     $_POST['valor_unidad'], $_POST['idcategoriaproducto'], $_POST['id_talla'])) {

@@ -18,7 +18,23 @@ class FotoDAO {
 
     public function buscarFotoPorId($id) {
         $data_source = new DataSource();
-        $data_table = $data_source->ejecutarConsulta("SELECT * FROM fotos WHERE idFoto = :id", array(':id' => $id));
+        $data_table = $data_source->ejecutarConsulta("SELECT * FROM foto WHERE idFoto = :id", array(':id' => $id));
+        $foto = null;
+        if (count($data_table) == 1) {
+            $foto = new Foto(
+                $data_table[0]["idFoto"],
+                $data_table[0]["urlFoto"],
+                $data_table[0]["idProducto"]
+            );
+            return $foto;
+        } else {
+            return null;
+        }
+    }
+
+    public function buscarFotoPorIdProducto($id) {
+        $data_source = new DataSource();
+        $data_table = $data_source->ejecutarConsulta("SELECT * FROM foto WHERE idProducto = :id", array(':id' => $id));
         $foto = null;
         if (count($data_table) == 1) {
             $foto = new Foto(

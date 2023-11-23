@@ -1,4 +1,5 @@
 <?php
+        $_SESSION['Acceso'] = false;
         session_start();
         require_once (__DIR__. "/../mdb/mdbUsuario.php");
 
