@@ -43,8 +43,14 @@ session_start();
                 <div class="item-a">
                     <div class="box">
                         <div class="slide-img">
-                            <!-- <?php  $foto = buscarFotoPorIdProducto($produc->getIdProducto())?> -->
-                            <img src="../Fotos/<?php echo $foto->getUrlFoto() ?>" alt="" />
+                            <?php  $foto = buscarFotoPorIdProducto($produc->getIdProducto());
+                            if($foto!=null){
+                                $imagen = $foto->getUrlFoto();
+                            }else{
+                                $imagen="SinFoto.png";
+                            }
+                            ?>
+                            <img src="../Fotos/<?php  echo $imagen ?>" alt="" />
                             <div class="overlay">
                                 <a href="./verProducto.php" class="buy-btn">Buy Now</a>
                             </div>
