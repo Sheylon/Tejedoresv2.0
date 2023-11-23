@@ -1,9 +1,12 @@
 <?php
 session_start();
-if(isset($_SESSION['NOMBRE_USUARIO'])){
-    header("Location = Bienvenida.php");
+require_once("../modelo/dao/ProductoDAO.php"); // Asegúrate de incluir el archivo del ProductoDAO
+
+if (isset($_SESSION['NOMBRE_USUARIO'])) {
+   
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -31,38 +34,35 @@ if(isset($_SESSION['NOMBRE_USUARIO'])){
     
 <div class="container-title">Ropa</div>
 
-    <?php
-    $listproducto = $_SESSION['PRODUCTOS']->fetchALL(PDO::FETCH_ASSOC);
-
+<?php
+    $productoDAO = new ProductoDAO(); // Asegúrate de crear una instancia de ProductoDAO
+    $listproducto = $productoDAO->leerProductos();
     ?>
 
-
-
-    <?php foreach ( $listproducto  as $Producto) { ?>
-
-        <div class="card-container">
-            <div class="item-a">
-                <div class="box">
-                    <div class="slide-img">
-                        <img src="img/blusa-2.jpg" alt="" />
-                        <div class="overlay">
-                            <a href="#" class="buy-btn">Buy Now</a>
-                        </div>
+<?php foreach ($listproducto as $Producto) { ?>
+    
+    <div class="card-container">
+        <div class="item-a">
+            <div class="box">
+                <div class="slide-img">
+                    <img src="img/blusa-2.jpg" alt="" />
+                    <div class="overlay">
+                        <a href="#" class="buy-btn">Buy Now</a>
                     </div>
-                
-                    <div class="detail-box">
-                        <div class="type">
-                            <a><?php echo $Producto['nombre']; ?></a>
-                        
-                        </div>
-                        <a class="price"><?php echo $Producto['valorUnidad']; ?></a>
+                </div>
+              
+                <div class="detail-box">
+                    <div class="type">
+                        <a><?php echo $Producto->getNombre(); ?></a>
                     </div>
+                    <a class="price"><?php echo $Producto->getValorUnidad(); ?></a>
                 </div>
             </div>
         </div>
+    </div>
 
-    <?php } ?>
-    
+<?php } ?>
+
     <footer>
         <?php
         require_once("./Templates/Footer.php");
