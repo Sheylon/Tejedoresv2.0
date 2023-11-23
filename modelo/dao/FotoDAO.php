@@ -7,7 +7,7 @@ class FotoDAO {
 
     public function insertarFoto(Foto $foto) {
         $data_source = new DataSource();
-        $sql = "INSERT INTO foto (idFoto, urlFoto, idProducto) VALUES (:idFoto, :urlFoto, :idProducto)";
+        $sql = "INSERT INTO foto (idFoto, urlFoto, idProducto)  VALUES (:idFoto, :urlFoto, :idProducto)";
         
         $resultado = $data_source->ejecutarActualizacion($sql, array(
             ':idFoto' => $foto->getIdFoto(),
@@ -31,6 +31,23 @@ class FotoDAO {
             array_push($fotos, $foto);
         }
         return $fotos;   
+    }
+
+    public function buscarFotoPorId($id) {
+        $data_source = new DataSource();
+        $query = "SELECT * FROM foto WHERE idFoto = :id";
+        $result = $data_source->ejecutarConsulta($query, array(':id' => $id));
+
+        if (count($result) > 0) {
+            $foto = new Foto(
+                $result[0]["idFoto"],
+                $result[0]["urlFoto"],
+                $result[0]["idProducto"]
+            );
+            return $foto;
+        } else {
+            return null; // No se encontró ninguna foto con el ID proporcionado
+        }
     }
 
     // Otros métodos para insertar, modificar y borrar fotos si es necesario

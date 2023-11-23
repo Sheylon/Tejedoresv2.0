@@ -1,4 +1,4 @@
-<?
+<?php
 function buscarFotoPorId($id) {
         require_once(__DIR__."/../../modelo/dao/FotoDAO.php");
         $dao = new FotoDAO();
