@@ -29,7 +29,8 @@ session_start();
         ?>
     </header>
 
-    <div class="container-title">Ropa</div>
+    
+    <div class="container-title"><?php echo $Producto->getNombre(); ?></div>
 
     <main>
         <div class="container-img">

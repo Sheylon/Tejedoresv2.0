@@ -69,6 +69,7 @@
   transition: all 300ms;
 }
 
+
 .caja__trasera button:hover{
   background: #fff;
   color: #46A2FD;
@@ -179,4 +180,5 @@
   .contenedor__login-register form{
       position: relative;
   }
+  
 }

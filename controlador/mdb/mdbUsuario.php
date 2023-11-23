@@ -1,5 +1,10 @@
 <?php
-
+    function autenticarUsuarioCorreo($correo){
+        require_once(__DIR__."/../../modelo/dao/usuarioDAO.php");
+        $dao=new UsuarioDAO();
+        $usuario = $dao->autenticarUsuarioCorreo($correo);
+        return $usuario;
+    }
     function autenticarUsuario($correo, $cotrasena){
         require_once(__DIR__."/../../modelo/dao/usuarioDAO.php");
         $dao=new UsuarioDAO();
@@ -40,5 +45,11 @@
         require_once(__DIR__."/../../modelo/dao/usuarioDAO.php");
         $dao = new UsuarioDAO();
         $res=$dao->borrarUsuario($id);
+        return $res;
+    }  
+    function modificarContrasenaUsuario($usuario){
+        require_once(__DIR__."/../../modelo/dao/usuarioDAO.php");
+        $dao = new UsuarioDAO();
+        $res=$dao->modificarContrasenaUsuario($contrasena);
         return $res;
     }     
