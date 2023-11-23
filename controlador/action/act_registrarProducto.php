@@ -5,6 +5,8 @@ session_start();
 require_once(__DIR__ . "/../../modelo/entidad/Producto.php");
 require_once(__DIR__ . "/../../modelo/entidad/Foto.php");
 require_once(__DIR__ . "/../mdb/mdbProductos.php");
+require_once(__DIR__ . "/../mdb/mdbFoto.php");
+
 
 if (isset($_POST['nombre'], $_POST['descripcion'], $_POST['unidades_disponibles'],
     $_POST['valor_unidad'], $_POST['idcategoriaproducto'],  $_POST['id_talla'])) {
@@ -26,7 +28,7 @@ if (isset($_POST['nombre'], $_POST['descripcion'], $_POST['unidades_disponibles'
         $idProducto = buscarProductoPorNombre($nombreProducto);
         $urlFOto = generarURL();
 
-        $foto = new Foto(NULL, $urlFOto, $idProducto);
+        $foto = new Foto(NULL, "sssssurlFOto",$idProducto);
 
         insertarFoto($foto);
 
@@ -66,7 +68,7 @@ function generarURL(){
             // Mueve el archivo subido al directorio de destino
             if (move_uploaded_file($archivoTemporal, $archivoDestino)) {
                 // Subida de archivo exitosa.
-                return $archivoTemporal;
+                return $archivoDestino;
                 header("Location: ../../vistas/index.php?msg=Foto subida exitosamente");
                 exit();
             } else {

@@ -1,5 +1,5 @@
-<?
-function buscarFotoPorId($id) {
+<?php
+    function buscarFotoPorId($id) {
         require_once(__DIR__."/../../modelo/dao/FotoDAO.php");
         $dao = new FotoDAO();
         $foto = $dao->buscarFotoPorId($id);
@@ -30,4 +30,4 @@ function buscarFotoPorId($id) {
         return $resultado;
     }
 
-    ?>
+?>
