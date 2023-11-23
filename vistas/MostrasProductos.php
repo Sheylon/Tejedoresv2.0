@@ -36,29 +36,31 @@ session_start();
         $listproducto = $productoDAO->leerProductos();
     ?>
 
-<?php foreach ($listproducto as $Producto) { ?>
-    
-    <div class="card-container">
-        <div class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img src="img/blusa-2.jpg" alt="" />
-                    <div class="overlay">
-                        <a href="#" class="buy-btn">Buy Now</a>
+    <div class="container">
+        <?php foreach ($listproducto as $Producto) { ?>
+            
+            <div class="card-container">
+                <div class="item-a">
+                    <div class="box">
+                        <div class="slide-img">
+                            <img src="img/blusa-2.jpg" alt="" />
+                            <div class="overlay">
+                                <a href="#" class="buy-btn">Buy Now</a>
+                            </div>
+                        </div>
+                    
+                        <div class="detail-box">
+                            <div class="type">
+                                <a><?php echo $Producto->getNombre(); ?></a>
+                            </div>
+                            <a class="price"><?php echo $Producto->getValorUnidad(); ?></a>
+                        </div>
                     </div>
-                </div>
-              
-                <div class="detail-box">
-                    <div class="type">
-                        <a><?php echo $Producto->getNombre(); ?></a>
-                    </div>
-                    <a class="price"><?php echo $Producto->getValorUnidad(); ?></a>
                 </div>
             </div>
-        </div>
+        
+        <?php } ?>
     </div>
-
-<?php } ?>
 
     <footer>
         <?php
