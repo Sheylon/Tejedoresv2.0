@@ -1,4 +1,3 @@
-
 <?php
 
 class DataSource {
@@ -29,13 +28,12 @@ class DataSource {
             
 
             // Se crea una instancia de PDO para establecer la conexión con la base de datos
-            $this->conexion = new PDO($this->cadenaConexion,$json['username'],$json['password']);
+            $this->conexion = new PDO($this->cadenaConexion, $json['username'], $json['password']);
         } catch (PDOException $ex) {
             echo $ex->getMessage(); // En caso de error, se muestra un mensaje de error
         }
     }
 
-     
     public function ejecutarConsulta($sql = "", $values = array()){
         if ($sql != "") {
             // Se prepara la consulta SQL
@@ -46,9 +44,6 @@ class DataSource {
             
             // Se obtiene el resultado de la consulta en forma de array asociativo
             $tablaDatos = $consulta->fetchAll(PDO::FETCH_ASSOC);
-            
-            // Se cierra la conexión
-            $this->conexion = null;
             
             // Se devuelve el resultado de la consulta
             return $tablaDatos;
@@ -68,9 +63,6 @@ class DataSource {
             // Se obtiene el número de filas afectadas por la consulta
             $numeroFilasAfectadas = $consulta->rowCount();
             
-            // Se cierra la conexión
-            $this->conexion = null;
-            
             // Se devuelve el número de filas afectadas
             return $numeroFilasAfectadas;
         } else {
@@ -78,7 +70,4 @@ class DataSource {
         }
     }
 }
-
 ?>
-
-

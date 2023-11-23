@@ -28,7 +28,7 @@ if(isset($_SESSION['ID_USUARIO']) !=  null){
 
         <div class="container">
                 <h1>Inserción de Producto</h1>
-                <form id="productForm" action="../controlador/action/act_registrarProducto.php" method="post">
+                <form id="productForm" action="../controlador/action/act_registrarProducto.php" method="post" enctype="multipart/form-data">
 
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" required>
