@@ -3,9 +3,6 @@
 session_start();
 
 
-// Verifica si el formulario fue enviado
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Verifica si se seleccionó un archivo para subir
     if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
         $nombreArchivo = $_FILES['foto']['name'];
         $tipoArchivo = $_FILES['foto']['type'];
@@ -14,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $directorioDestino = __DIR__ . "/../../Fotos"; 
         // Genera un nombre de archivo único para evitar sobrescribir archivos existentes
-        $archivoDestino = $directorioDestino . uniqid() . '_' . basename($_FILES["foto"]["name"]);
+        $archivoDestino = $directorioDestino . uniqid() . '/' . basename($_FILES["foto"]["name"]);
         
         // Verifica si el archivo tiene un formato de imagen válido
         $tipoArchivo = strtolower(pathinfo($archivoDestino, PATHINFO_EXTENSION));
@@ -36,14 +33,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: ../../vistas/RegistroProducto.php?msg=Formato de archivo no válido");
             exit();
         }
-    } else {
-        // No se seleccionó ningún archivo, redirige con un mensaje de error
-        header("Location: ../../vistas/SubirFoto.php?msg=Selecciona un archivo para subir");
-        exit();
-    }
-} else {
-    // Método de solicitud no válido, redirige con un mensaje de error
-    header("Location: ../../vistas/SubirFoto.php?msg=Solicitud no válida");
-    exit();
-}
+    } 
 ?>
