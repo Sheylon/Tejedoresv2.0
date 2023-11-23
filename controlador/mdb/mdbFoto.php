@@ -30,4 +30,4 @@ function buscarFotoPorId($id) {
         return $resultado;
     }
 
-    ?>
+?>
