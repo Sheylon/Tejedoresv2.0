@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
 .container-title {
 	padding: 30px;
 	background-color: #eee;
@@ -11,11 +18,11 @@
 	color: #222;
 }
 
-.card-container {
+/* .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+} */
 
 .box {
     width: 250px;
