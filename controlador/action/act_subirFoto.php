@@ -1,26 +1,24 @@
 <?php
-
-session_start();
-
-
-    if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
-        $nombreArchivo = $_FILES['foto']['name'];
-        $tipoArchivo = $_FILES['foto']['type'];
-        $tamañoArchivo = $_FILES['foto']['size'];
-        $archivoTemporal = $_FILES['foto']['tmp_name'];
+function subirfoto(){
+       
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        $nombreArchivo = $_FILES['image']['name'];
+        $tipoArchivo = $_FILES['image']['type'];
+        $archivoTemporal = $_FILES['image']['tmp_name'];
 
         $directorioDestino = __DIR__ . "/../../Fotos"; 
         // Genera un nombre de archivo único para evitar sobrescribir archivos existentes
-        $archivoDestino = $directorioDestino . uniqid() . '/' . basename($_FILES["foto"]["name"]);
+        $archivoDestino = $directorioDestino . uniqid() . '/' . basename($nombreArchivo);
         
         // Verifica si el archivo tiene un formato de imagen válido
         $tipoArchivo = strtolower(pathinfo($archivoDestino, PATHINFO_EXTENSION));
-        $formatosPermitidos = array("jpg", "jpeg", "png", "gif");
+        $formatosPermitidos = array("jpg", "jpeg", "png");
         
         if (in_array($tipoArchivo, $formatosPermitidos)) {
             // Mueve el archivo subido al directorio de destino
-            if (move_uploaded_file($_FILES["foto"]["tmp_name"], $archivoDestino)) {
+            if (move_uploaded_file($archivoTemporal, $archivoDestino)) {
                 // Subida de archivo exitosa.
+                return $archivoTemporal;
                 header("Location: ../../vistas/index.php?msg=Foto subida exitosamente");
                 exit();
             } else {
@@ -33,5 +31,7 @@ session_start();
             header("Location: ../../vistas/RegistroProducto.php?msg=Formato de archivo no válido");
             exit();
         }
-    } 
+    }  
+              
+}
 ?>

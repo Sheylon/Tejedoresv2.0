@@ -2,6 +2,7 @@
 
 function buscarProductoPorNombre($nombreProducto) {
     require_once(__DIR__."/../../modelo/dao/productoDAO.php");
+    $dao = new ProductoDAO();
     $idProducto = $dao->buscarProductoPorNombre($nombreProducto);
     return $idProducto;
 }
