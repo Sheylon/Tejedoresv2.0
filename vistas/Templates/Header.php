@@ -51,7 +51,7 @@
                     </li>
         
                     <li>
-                        <a href="funciones/locales/index.html">Locales cercanos</a> 
+                        <a href="./mostarUsuarios.php">Locales cercanos</a> 
                     </li>
                 </ul>
             </nav>
