@@ -19,21 +19,18 @@ if (isset($_POST['nombre'], $_POST['descripcion'], $_POST['unidades_disponibles'
     $Talla = $_POST['Talla'];
     $idusuario = $_SESSION['ID_USUARIO'];
 
-    echo $TipoProducto;
-
-
+    $idTipoProducto = 0;
+    $idTalla = 0;
 
     if($TipoProducto == "Ropa"){
-        $idTipoProducto = 1;
-        header("Location: ../../vista/RegistroProducto.php?msg=catergotia Ropa");
-    }{
-        echo $idTipoProducto = 2;
-        header("Location: ../../vista/RegistroProducto.php?msg=catergotia Ropa");
         
+        $idTipoProducto = 1; 
+    }else{
+        $idTipoProducto = 2;    
     }
 
     if($idTipoProducto == 1){
-        header("Location: ../../vista/RegistroProducto.php?msg=catergotia bien1");
+        
         if($Talla == "XS"){
             $idTalla = 1;
         }else if($Talla == "S"){
@@ -41,14 +38,13 @@ if (isset($_POST['nombre'], $_POST['descripcion'], $_POST['unidades_disponibles'
         }else if($Talla == "M"){
             $idTalla = 3;
         }else if($Talla == "L"){
+            
             $idTalla = 4;
         }   
-    }{
-        header("Location: ../../vista/RegistroProducto.php?msg=catergotia no ha catergotia");
-        $idTalla = 0;
+    }else{
+        $idTalla = 5;
     }
-
-    
+        
 
     $producto = new Producto(null, $nombreProducto, $descripcion, $unidadesDisponibles, $valorUnidad, $idTipoProducto, $idTalla, $idusuario);
 
@@ -84,8 +80,7 @@ if (isset($_POST['nombre'], $_POST['descripcion'], $_POST['unidades_disponibles'
     exit();
 }
 
-function generarURL()
-{
+function generarURL(){
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $nombreArchivo = $_FILES['image']['name'];
         $archivoTemporal = $_FILES['image']['tmp_name'];
