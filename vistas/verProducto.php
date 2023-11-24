@@ -1,6 +1,9 @@
 <?php
 session_start();
-    require_once("../modelo/dao/ProductoDAO.php"); // Asegúrate de incluir el archivo del ProductoDAO
+    require_once (__DIR__.'/../controlador/mdb/mdbProductos.php');
+    require_once (__DIR__.'/../modelo/entidad/Producto.php');
+    require_once (__DIR__.'/../controlador/mdb/mdbFoto.php');
+    require_once (__DIR__.'/../modelo/entidad/Foto.php');
 
     if (isset($_SESSION['NOMBRE_USUARIO'])) {
     }
@@ -11,7 +14,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MostrasProductos</title> 
+    <title>verProducto</title> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="css/verProducto.css">
     <link rel="stylesheet" href="css/styleHeaderFooter.css">
@@ -29,45 +32,49 @@ session_start();
         ?>
     </header>
 
-    
-    <div class="container-title"><?php echo $Producto->getNombre(); ?></div>
+    <?php
+        $Producto = buscarProductoPorId(47);
+    ?>
+
+    <div class="container-title"><p><?php echo $Producto->getNombre()?></p></div>
 
     <main>
         <div class="container-img">
-            <img src="img/Pantalon.jpg" alt="">
-            
+            <?php  $foto = buscarFotoPorIdProducto($Producto->getIdProducto());
+                if($foto!=null){
+                    $imagen = $foto->getUrlFoto();
+                }else{
+                    $imagen="SinFoto.png";
+                }
+            ?>
+            <img src="../Fotos/<?php  echo $imagen ?>" alt="" />
+        
         </div>
         <div class="container-info-product">
             <div class="container-price">
-                <span>$95.00</span>
+                <span><?php echo $Producto->getValorUnidad()?></div></span>
                 <i class="fa-solid fa-angle-right"></i>
             </div>
 
             <div class="container-details-product">
                 <div class="form-group">
-                    <label for="colour">Color</label>
-                    <select name="colour" id="colour">
-                        <option disabled selected value="">
-                            Escoge una opción
-                        </option>
-                        <option value="rojo">Rojo</option>
-                        <option value="blanco">Blanco</option>
-                        <option value="beige">Beige</option>
-                    </select>
                 </div>
                 <div class="form-group">
                     <label for="size">Talla</label>
-                    <select name="size" id="size">
-                        <option disabled selected value="">
-                            Escoge una opción
-                        </option>
-                        <option value="40">S</option>
-                        <option value="42">M</option>
-                        <option value="43">L</option>
-                        <option value="44">XL</option>
-                    </select>
+                    <?php  
+                        if($Producto->getIdTalla() == 1) {
+                            echo "XS"; 
+                        }else if($Producto->getIdTalla() == 2) {
+                            echo "S"; 
+                        }else if($Producto->getIdTalla() == 3) {
+                            echo "M"; 
+                        }else{
+                            echo "L";
+                        }
+                    ?>
+                    
                 </div>
-                <button class="btn-clean">Limpiar</button>
+                
             </div>
 
             <div class="container-add-cart">
@@ -97,15 +104,9 @@ session_start();
                 </div>
                 <div class="text-description">
                     <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Laboriosam iure provident atque voluptatibus
-                        reiciendis quae rerum, maxime placeat enim cupiditate
-                        voluptatum, temporibus quis iusto. Enim eum qui delectus
-                        deleniti similique? Lorem, ipsum dolor sit amet
-                        consectetur adipisicing elit. Sint autem magni earum est
-                        dolorem saepe perferendis repellat ipsam laudantium cum
-                        assumenda quidem quam, vero similique? Iusto officiis
-                        quod blanditiis iste?
+                        <?php 
+                           echo $Producto->getDescripcion();
+                        ?>
                     </p>
                 </div>
             </div>

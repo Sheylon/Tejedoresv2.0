@@ -29,7 +29,7 @@ class ProductoDAO {
                 $data_table[0]["descripcion"],
                 $data_table[0]["unidadesDisponibles"],
                 $data_table[0]["valorUnidad"],
-                $data_table[0]["idCategoriaProducto"],
+                $data_table[0]["idcategoriaproducto"],
                 $data_table[0]["idtalla"],
                 $data_table[0]["idusuario"]
             );

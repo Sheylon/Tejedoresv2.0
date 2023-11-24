@@ -1,7 +1,7 @@
 <?php
-    if ( isset($_SESSION['NOMBRE_USUARIO']) == "administrador"){
+    if ( isset($_SESSION['NOMBRE_USUARIO']) && $_SESSION['ROL_USUARIO']== "administrador"){
     }else{
-        header('Location =index.php');
+        header('Location = index.php');
     }
 
     require_once( __DIR__ ."/../controlador/mdb/mdbUsuario.php");

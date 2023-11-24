@@ -22,10 +22,10 @@ if (isset($_POST['Nombre_completo'], $_POST['Correo'], $_POST['Usuario'], $_POST
     if ($resultado) {
         // Redirige al usuario a la página de inicio de sesión con un mensaje de éxito.
         
-        header("Location:../../vistas/index.php?msg=Registro exitoso");
+        header("Location:../../vistas/RegistroLogin.php?msg=Registro exitoso");
     } else {
         // Redirige al usuario a la página de registro con un mensaje de error.
-        header("Location: ../../vista/RegistroLogin?msg=Error en el registro");
+        header("Location: ../../vista/RegistroLogin.php?msg=Error en el registro");
     }
 } else {
     // Si los datos del formulario no se enviaron correctamente, redirige al usuario a la página de registro con un mensaje de error.

@@ -20,6 +20,11 @@
                         $_SESSION['USUARIO'] = $usuario->getUsuario();
                         $_SESSION['ROL_USUARIO'] = $usuario->getRol();
                         $_SESSION['CONTRASENA_USUARIO'] = $usuario->getContrasena();
+
+                        
+                        if($_SESSION['ROL_USUARIO'] == "administrador"){
+                                header('Location: ../../vistas/mostarUsuarios.php');
+                        }
                         header('Location: ../../vistas/index.php');
                         echo 'Conectado exitosamente a la Base de Datos';
 
