@@ -38,15 +38,9 @@ session_start();
         <?php
         $aregloProducto = leerProductos();
         foreach ($aregloProducto as $Producto => $produc) { ?>
-            <?php
-                $listaIdProducto = array();
-                array_push($listaIdProducto, $Produc->getIdProducto());
-                $i = 0;
-            ?>
+            
             
             <div class="card-container">
-                <?php $p= $i ?> </P>
-                <?php  $i++?>
                 <div class="item-a">
                     <div class="box">
                         <div class="slide-img">
@@ -78,7 +72,6 @@ session_start();
                         </div>
                     </div>
                 </div>
-                <?php $i++ ?> </P>
             </div>  
             
             
