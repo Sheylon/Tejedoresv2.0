@@ -34,8 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = "Para restablecer tu contraseña, haz clic en el siguiente enlace:\n\n";
     $message .= "$dominio/vistas\cambiarContrasena.php";
 
-    $headers = "From: yeimercampoparada@email.com" . "\r\n" .
-            "Reply-To: yeimercampoparada@email.com" . "\r\n" .
+    $headers = "From: yeimercampoparada@gmail.com" . "\r\n" .
+            "Reply-To: yeimercampoparada@gmail.com" . "\r\n" .
             "X-Mailer: PHP/" . phpversion();
 
     mail($to, $subject, $message, $headers);
