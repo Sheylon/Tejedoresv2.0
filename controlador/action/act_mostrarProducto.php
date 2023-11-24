@@ -1,17 +1,22 @@
 <?php
-    session_start();
-    require_once (__DIR__.'/../mdb/mdbProductos.php'); 
 
-    if($_SESSION['ROL_USUARIO'] == "Vendedor"){
+$listaIdProducto = array();
 
-        $idusuario = $_SESSION['ID_USUARIO'];
-        $_SESSION['PRODUCTOS'] = leerProductosVendedor($idusuario);
-        header('Location: ../../vistas/MostrasProductos.php');
+    array_push($listaIdProducto, $Produc->getIdProducto());
 
-    }else{
-        $_SESSION['PRODUCTOS'] = leerProductos();
-        header('Location: ../../vistas/MostrasProductos.php');
+    function guardarID($idPro){
+        array_push($listaIdProducto, $idPro);
+
     }
 
-    header('Location: ../../vistas/MostrasProductos.php');
+    function guardarPuesto($puesto) {  
+
+
+    }
+        
+    
+
+    
+
+    
 ?>
