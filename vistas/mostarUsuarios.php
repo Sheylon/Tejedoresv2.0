@@ -1,11 +1,11 @@
 <?php
-    require_once( __DIR__ ."/../controlador/mdb/mdbUsuario.php");
-    require_once( __DIR__ ."/../modelo/entidad/Usuario.php");
-
     if ( isset($_SESSION['NOMBRE_USUARIO']) == "administrador"){
     }else{
         header('Location =index.php');
     }
+
+    require_once( __DIR__ ."/../controlador/mdb/mdbUsuario.php");
+    require_once( __DIR__ ."/../modelo/entidad/Usuario.php");
 
     session_start();   
 ?>
