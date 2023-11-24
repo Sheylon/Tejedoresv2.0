@@ -65,10 +65,9 @@ session_start();
                         <div class="detail-box">
                             <div class="type">
                                 <a><span><?php  
-                                
                                 echo $produc->getNombre() ?></span></a>
                             </div>
-                            <a class="price"><?php echo $produc->getNombre() ?></a>
+                            <a class="price"><?php echo $produc->getValorUnidad()?></a>
                         </div>
                     </div>
                 </div>

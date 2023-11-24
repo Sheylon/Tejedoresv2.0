@@ -77,7 +77,7 @@
     <footer>
         <?php
         require_once("./Templates/Footer.php");
-     ?>
+        ?>
     </footer>
 
 <body> 

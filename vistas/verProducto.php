@@ -33,7 +33,7 @@ session_start();
     </header>
 
     <?php
-        $Producto = buscarProductoPorId(42);
+        $Producto = buscarProductoPorId(1);
     ?>
 
     <div class="container-title"><p><?php echo $Producto->getNombre()?></p></div>

@@ -357,9 +357,9 @@ COMMIT;
 
 INSERT INTO `usuario` (`idusuario`, `nombre_completo`, `correo`, `usuario`, `rol`, `contrasena`) VALUES
 (1, 'yeimer campo', 'yeimer@gmail.com', 'yei', 'administrador', '1234'),
-(2, 'pedro perez', 'pedro@gmail.com', 'pedro', 'usuario', '345'),
-(3, 'camilo lopez', 'camilo@gmail.com', 'camilo', 'usuario', '1234'),
-(4, 'Sheylon', 'sheylon@gmail.com', 'mr.sheylon', 'Vendedor', '12s');
+(2, 'pedro perez', 'pedro@gmail.com', 'pedro', 'Vendedor', '345'),
+(3, 'camilo lopez', 'camilo@gmail.com', 'camilo', 'Vendedor', '1234'),
+(4, 'Sheylon', 'sheylon@gmail.com', 'mr.sheylon', 'Usuario', '12s');
 
 
 --
@@ -370,7 +370,8 @@ INSERT INTO `talla` (`idtalla`, `talla`) VALUES
 (1, 'XS'),
 (2, 'S'),
 (3, 'M'),
-(4, 'L');
+(4, 'L'),
+(5, 'NULL');
 
 --
 -- Volcado de datos para la tabla `talla`
@@ -380,3 +381,30 @@ INSERT INTO `categoriaproducto` (`idcategoriaproducto`, `nombre`, `descripcion`)
 (1, 'Ropa', 'El término ropa, ​ vestimenta o indumentaria es la denominación genérica​ que reciben las prendas'),
 (2, 'Accesorios', 'los accesorios de moda son detalles que le damos al estilismo para 
 ponerle el broche final al mismo.Nos referimos a joyas o bisutería, gafas de sol, pañuelos, etc.' );
+
+--
+-- Volcado de datos para la tabla `Producto`
+--
+
+INSERT INTO `producto` VALUES
+(1, 'Camiseta manga corta kaky oscuro con estampado de naruto', 'Camiseta hombro rodado, kaky oscuro, manga corta para
+                                                                 hombre, tiene cuello redondo, con estampado en frente 
+                                                                 de Naruto. Dale un estilo diferente a tu vida y combina 
+                                                                 esta prenda en tus días casuales.', 36, 50900, 1, 1, 3),
+(2, 'Jean 90´s negro con tiro medio, bolsillos y bota ancha recta', 'Jean para hombre tipo 90´S en tono negro, 
+                                                                    confeccionado en tela de algodón y con un fit ligeramente
+                                                                    holgado, cuenta con 5 bolsillos funcionales, diseño de
+                                                                    bota recta ancha y tiro medio. Esta es una prenda clásica 
+                                                                    e infaltable que podrás vestir con tus camisetas favoritas
+                                                                    y lucir cualquier día de la semana.', 150,  109900, 1, 2, 2),
+(3, 'Chaqueta acolchada unicolor con elástico en puños y bolsillos', 'Chaqueta unicolor de textura acolchada para hombre cuenta con 
+                                                                  cierre delantero con cremallera, cuello alto, elástico en puños, 2 
+                                                                  bolsillos laterales y una horma ceñida al torso. Si el día está frío 
+                                                                  y estás pensando qué puedes ponerte, esta prenda, combinada con un jean 
+                                                                  y una camisa, serán la mejor opción para tu look.', 200,  101940, 1, 1, 3);
+
+
+INSERT INTO `foto` (`idFoto`, `urlFoto`, `idProducto`) VALUES 
+('1', 'camiseta-manga-corta-kaky-oscuro-con-estampado-de-naruto.jpg', '1'),
+('2', 'pantalon-jean-90s-hombre-bota-ancha.jpg', '2'),
+('3', 'chaqueta-acolchada-unicolor-con-elastico-en-punos-y-bolsillos.jpg', '3');
