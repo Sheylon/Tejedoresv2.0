@@ -38,8 +38,15 @@ session_start();
         <?php
         $aregloProducto = leerProductos();
         foreach ($aregloProducto as $Producto => $produc) { ?>
+            <?php
+                $listaIdProducto = array();
+                array_push($listaIdProducto, $Produc->getIdProducto());
+                $i = 0;
+            ?>
             
             <div class="card-container">
+                <?php $p= $i ?> </P>
+                <?php  $i++?>
                 <div class="item-a">
                     <div class="box">
                         <div class="slide-img">
@@ -52,17 +59,26 @@ session_start();
                             ?>
                             <img src="../Fotos/<?php  echo $imagen ?>" alt="" />
                             <div class="overlay">
-                                <a href="./verProducto.php" class="buy-btn">Buy Now</a>
+                            <form action="../controlador/action/act_login.php" method= "POST" class=>
+                                
+                            <input   name="idProducto" value="<?php $listaIdProducto[$p]?>" hidden>
+                                <button class="buy-btn">Comprar Ahora</button>
+                            </form>
+
+                
                             </div>
                         </div>
                         <div class="detail-box">
                             <div class="type">
-                                <a><span><?php  echo $produc->getNombre() ?></span></a>
+                                <a><span><?php  
+                                
+                                echo $produc->getNombre() ?></span></a>
                             </div>
                             <a class="price"><?php echo $produc->getNombre() ?></a>
                         </div>
                     </div>
                 </div>
+                <?php $i++ ?> </P>
             </div>  
             
             

@@ -33,7 +33,8 @@ session_start();
     </header>
 
     <?php
-        $Producto = buscarProductoPorId(47);
+    $id = $_POST["idProducto"];
+        $Producto = buscarProductoPorId($id);
     ?>
 
     <div class="container-title"><p><?php echo $Producto->getNombre()?></p></div>
