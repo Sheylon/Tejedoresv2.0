@@ -23,7 +23,12 @@ if(isset($_SESSION['ID_USUARIO']) !=  null){
 </head>
 <body>
         <?php 
-        require_once("./Templates/Header.php");
+        if($_SESSION['ROL_USUARIO'] == "administrador"){
+                require_once("./Templates/headerAdmin.php");
+    
+            }else{
+            require_once("./Templates/Header.php");
+            }
         ?>
 
         <div class="container">

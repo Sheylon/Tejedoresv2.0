@@ -28,12 +28,17 @@ session_start();
 <body>
     <header>
         <?php 
-        require_once("templates/Header.php");
+        if($_SESSION['ROL_USUARIO'] == "administrador"){
+            require_once("./Templates/headerAdmin.php");
+
+        }else{
+        require_once("./Templates/Header.php");
+        }
         ?>
     </header>
 
     <?php
-        $Producto = buscarProductoPorId(1);
+        $Producto = buscarProductoPorId(3);
     ?>
 
     <div class="container-title"><p><?php echo $Producto->getNombre()?></p></div>
@@ -67,10 +72,8 @@ session_start();
                         Escoge una opción
                     </option>
                     <?php  
-                        // Assuming $Producto->getIdTalla() is the variable representing the selected size ID
                         $selectedSizeId = $Producto->getIdTalla();
 
-                        // Define an array with size options
                         $sizeOptions = [
                             1 => 'XS',
                             2 => 'S',
