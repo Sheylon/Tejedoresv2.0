@@ -107,7 +107,7 @@ if(isset($_SESSION ['Usuario'])){
                         <input type="text" placeholder="Usuario" name="Usuario">
                         <select name="rol" id="rol">
                         <option value="" style="color: gray;" disabled selected hidden>Registrar como</option>
-                        <option value="usuario">Usuario</option>
+                        <option value="Usuario">Usuario</option>
                         <option value="Vendedor">Vendedor</option>
                         </select>
                         <input type="password" placeholder="Contrasena" name="contrasena">

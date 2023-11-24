@@ -42,11 +42,21 @@ if(isset($_SESSION['ID_USUARIO']) !=  null){
                         <label for="valor">Valor por unidad:</label>
                         <input type="number" id="valor_unidad" name="valor_unidad" required>
 
-                        <label for="idCategoria">Categoría:</label>
-                        <input type="number" id="idcategoriaproducto" name="idcategoriaproducto" required>
+                        <label for="Categoria">Categoría:</label>
+                        <select name="Categoria" id="rol">
+                        <option value="" style="color: gray;" disabled selected hidden></option>
+                        <option value="Ropa">Ropa</option>
+                        <option value="Accesorios">Accesorios</option>
+                        </select>
 
                         <label for="idTalla">Talla:</label>
-                        <input type="number" id="id_talla" name="id_talla" required>
+                        <select name="Talla" id="rol">
+                        <option value="" style="color: gray;" disabled selected hidden></option>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="L">L</option>
+                        <option value="M">M</option>
+                        </select>
 
                         <label for="image">Selecciona una imagen:</label>
                         <input type="file" name="image" id="image" accept="image/*" required>
