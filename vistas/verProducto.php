@@ -7,6 +7,19 @@ session_start();
 
     if (isset($_SESSION['NOMBRE_USUARIO'])) {
     }
+
+    
+// Verificar si se proporcionó el ID del producto en la URL
+$idProducto = isset($_GET['idProducto']) ? $_GET['idProducto'] : null;
+
+// Realizar las operaciones necesarias con el ID del producto
+$Producto = buscarProductoPorId($idProducto);
+
+// Verificar si el producto se encontró antes de mostrar detalles
+if ($Producto === null) {
+    echo "Error: No se encontró el producto con el ID proporcionado.";
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,9 +50,6 @@ session_start();
         ?>
     </header>
 
-    <?php
-        $Producto = buscarProductoPorId(3);
-    ?>
 
     <div class="container-title"><p><?php echo $Producto->getNombre()?></p></div>
 

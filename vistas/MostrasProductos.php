@@ -18,7 +18,8 @@ session_start();
     <link rel="stylesheet" href="css/styleHeaderFooter.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
-    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./js/mostrasProductos.js"></script>
     <script src="https://kit.fontawesome.com/a12187352c.js" crossorigin="anonymous"></script>
 </head>
 
@@ -58,13 +59,11 @@ session_start();
                             ?>
                             <img src="../Fotos/<?php  echo $imagen ?>" alt="" />
                             <div class="overlay">
-                            <form action="../controlador/action/act_login.php" method= "POST" class=>
-                                
-                            <input   name="idProducto" value="<?php $listaIdProducto[$p]?>" hidden>
-                                <button class="buy-btn">Comprar Ahora</button>
+                            <form class="comprarForm">
+                                <input type="hidden" name="idProducto" value="<?php echo $produc->getIdProducto() ?>">
+                                <button class="buy-btn" type="submit">Comprar Ahora</button>
                             </form>
 
-                
                             </div>
                         </div>
                         <div class="detail-box">
@@ -82,7 +81,7 @@ session_start();
         <?php ; } ?>
     </div>
 
-            
+
 
     <footer>
         <?php
